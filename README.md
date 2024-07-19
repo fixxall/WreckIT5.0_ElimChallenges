@@ -55,7 +55,7 @@ Here's a sample flag.
 WRECKIT50{hell0W_olrd_!5Simpl3#}
 ```
 
-## List of Challenges
+## List of Challenges on Public category
 
 | No  | Category  | Challenge Name       | Author      |  Connection                                                 |
 | --- | --------- | ------------------- | ----------- | ---------------------------------------------------- |
