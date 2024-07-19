@@ -18,10 +18,10 @@ The installation steps of docker and docker-compose for others operating system 
 
 Every service will use different port. To setting port use <code>docker-composer.yml</code> on every challenge.
 ```bash
-git clone https://github.com/csivitu/ctf-challenges.git
+git clone https://github.com/fixxall/WreckIT5.0_ElimChallenges.git
 
 # Enter the directory of service. Example for p00-warmup:
-cd Jobs-1
+cd CRYPTO/example
 
 # Compile environment
 docker-compose build
