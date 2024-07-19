@@ -1,0 +1,7 @@
+version: "3"
+services:
+  randompag:
+    build: .
+    ports:
+      - 50502:5000
+    restart: always
