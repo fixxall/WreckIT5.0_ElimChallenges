@@ -1,0 +1,7 @@
+version: '3'
+services:
+  itsabouttime:
+    build: .
+    ports:
+      - "2222:22"
+    container_name: itsabouttime

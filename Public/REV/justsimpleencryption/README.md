@@ -1,10 +1,10 @@
-# example
+# Just Simple Encryption
 
 Author: [rafliher](https://github.com/rafliher)
 
 ## Description
 
-Simple encryption algorithm reversing on c++
+Just solve it
 
 ## Requirements
 
