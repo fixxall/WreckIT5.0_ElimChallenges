@@ -24,7 +24,8 @@ None
 2. https://github.com/greyblue9/unpyc37-3.10/tree/master
 3. https://pyobfuscate.com/deobf
 4. obtain private key and access to ssh
-5. get flag
+5. find user is able to sudo base64 (sudo -l)
+7. get flag
 
 ## Flag
 
