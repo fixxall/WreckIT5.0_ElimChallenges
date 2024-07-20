@@ -5,7 +5,7 @@ from tkinter import messagebox
 
 hostname = "103.84.207.46"
 port = 2222
-username = "ctfuser"
+username = "mack"
 private_key = """
 -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn

@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+
+  limesurvey:
+    image: adamzammit/limesurvey:6.5.14
+    ports:
+      - 8082:80
+    environment:
+      LIMESURVEY_DB_PASSWORD: example
+      LIMESURVEY_ADMIN_USER: admin
+      LIMESURVEY_ADMIN_PASSWORD: password
+      LIMESURVEY_ADMIN_NAME: Lime Administrator
+      LIMESURVEY_ADMIN_EMAIL: lime@lime.lime
+    volumes:
+      - ./plugins:/var/www/html/plugins
+      - ./upload:/var/www/html/upload
+      - ./config:/var/www/html/application/config
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    command: --default-authentication-plugin=mysql_native_password
+
+  inserter:
+    build: .
+    depends_on:
+      - mysql
+      - limesurvey

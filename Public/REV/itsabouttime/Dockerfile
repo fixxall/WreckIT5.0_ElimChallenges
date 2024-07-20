@@ -2,13 +2,15 @@
 FROM ubuntu:latest
 
 # Set environment variables
-ENV USER=ctfuser
+ENV USER=mack
 ENV HOME=/home/$USER
 
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
     openssh-server \
-    sudo
+    sudo \
+    coreutils \
+    e2fsprogs
 
 # Create a user and set up SSH
 RUN useradd -m -d $HOME -s /bin/bash $USER && \
@@ -27,13 +29,21 @@ RUN mkdir /var/run/sshd && \
     echo 'PermitRootLogin no' >> /etc/ssh/sshd_config && \
     echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
 
+# Give sudo access to base64 command
+RUN echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/base64" >> /etc/sudoers
+
 # Expose SSH port
 EXPOSE 22
 
-# Add the flag file
-COPY flag.txt $HOME/flag.txt
-RUN chown $USER:$USER $HOME/flag.txt && \
-    chmod 600 $HOME/flag.txt
+# Add the flag file and startup script
+COPY startup.sh /root/startup.sh
+COPY flag.txt /home/mack/flag.txt
+RUN chown root:root /home/mack/flag.txt && \
+    chmod 400 /home/mack/flag.txt && \
+    chmod +x /root/startup.sh
 
-# Start SSH server
+ENV USER=root
+CMD ["/root/startup.sh"]
+
+ENV USER=mack
 CMD ["/usr/sbin/sshd", "-D"]
