@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>OSHIKU</title>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.svg') }}" class="logo">
+
+        <h1>OSHI Database</h1>
+        <form method="POST">
+            <label for="oshi_name">Select your favorite Cyber Heroine:</label>
+            <br>
+            <select name="oshi_name">
+                <option value="freya">Freya</option>
+                 <option value="indira">Indira</option>
+                 <option value="adel">Adel</option>
+                 <option value="fiony">Fiony</option>
+                 <option value="lulu">Lulu</option>
+                 <option value="oniel">Oniel</option>
+                 <option value="christy">Christy</option>
+                 <option value="gracia">Gracia</option>
+                 <option value="indah">Indah</option>
+                 <option value="ella">Ella</option>
+                 <option value="greesel">Ella</option>
+                <!-- Add more options here -->
+            </select>
+            <br>
+            <button type="submit">Get Biography</button>
+        </form>
+        <div class="biography">
+            <h2>Biography:</h2>
+            <p>{{ biography }}</p>
+        </div>
+    </div>
+</body>
+</html>
