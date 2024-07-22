@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Wait for MySQL to be ready
-/wait-for-it.sh mysql 3306 -- echo "MySQL is up"
-
 until curl -s -f "http://limesurvey:80" > /dev/null; do
     >&2 echo "Web service is unavailable - sleeping"
     sleep 1
