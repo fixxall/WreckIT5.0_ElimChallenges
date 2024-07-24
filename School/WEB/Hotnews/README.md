@@ -1,6 +1,6 @@
 # Hotnews
 
-Author: 
+Author: Vascoz
 
 ## Description
 
@@ -27,8 +27,8 @@ RCE
 ## Flag
 
 ```
-WRECKIT50{HotN3w5_S1mPL3_PhP_B4ckDoOR_&_Byp4sS_AU7H}```
-
+WRECKIT50{HotN3w5_S1mPL3_PhP_B4ckDoOR_&_Byp4sS_AU7H}
+```
 ## connection
 
 
