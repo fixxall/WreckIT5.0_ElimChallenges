@@ -20,8 +20,8 @@ None
 
 ## Exploit
 
-Solver.php ( TIME-Based Blind SQL Injection ) untuk mendapatkan password admin
-php Reverse Shell (Blind OS Command Injection) untuk mendapatkan flag 
+- Solver.php ( TIME-Based Blind SQL Injection ) untuk mendapatkan password admin
+- php Reverse Shell (Blind OS Command Injection) untuk mendapatkan flag 
 
 ## Flag
 
