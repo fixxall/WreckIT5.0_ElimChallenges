@@ -5,7 +5,8 @@ import sqlite3
 import subprocess
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key_here'
+byte = os.urandom(2)
+app.config['SECRET_KEY'] = 'os.urandom'
 jwt = JWTManager(app)
 
 # Database connection
