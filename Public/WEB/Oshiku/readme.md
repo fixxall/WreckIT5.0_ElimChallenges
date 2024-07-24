@@ -1,6 +1,6 @@
 # Oshiku
 
-Author: [VascoZ]
+Author: VascoZ
 
 ## Description
 
@@ -37,5 +37,8 @@ WRECKIT50{oshikucumansatuk0k_satujkt}
 
 
 ## Severity
-MEDIUM
+HARD
+
+## Note
+UI Akan diperbaiki
 
