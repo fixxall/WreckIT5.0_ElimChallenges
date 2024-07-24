@@ -6,4 +6,4 @@ hey find what lies in here
 5 byte pertama file zip dirusak, fix dan ekstrak rekursif
 
 ## flag:
-``` WRECKIT50{l3ngth_of_th_pack3t?} ```
+``` WRECKIT50{huhuhaha_hohohihe_gua_capek_ngezipnya_hehehhuhu_ez_lah} ```
