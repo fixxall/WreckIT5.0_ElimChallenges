@@ -6,3 +6,6 @@ music hiding something
 
 ## poc:
 morse, ez
+
+## flag:
+``` WRECKIT50{bip_bop_bip_bip_bop_morse_awikwok_asgaheadfa_agdhaeagha_mampus_ga_bisa_manual} ```
