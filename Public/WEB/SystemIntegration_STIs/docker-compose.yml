@@ -1,0 +1,7 @@
+version: "3"
+services:
+  nistikvillage:
+    build: .
+    ports:
+      - 40201:5000
+    restart: always

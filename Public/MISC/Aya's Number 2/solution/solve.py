@@ -2,6 +2,8 @@ from pwn import *
 
 io = process(['python3', '../src/chall.py'])
 
+maxNum = 1606938044258990275541962092341162602522202993782792835301376
+
 def getin(x, y):
     io.recvuntil(b'S0? ')
     io.sendline(str(x).encode())

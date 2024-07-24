@@ -1,8 +1,9 @@
-FROM python:3.11-slim-buster
+FROM python:3.10.6-slim-buster
 
 RUN apt-get update
 RUN apt-get install -y nano socat
-RUN pip install pycryptodome
+RUN pip install secp256k1
+RUN pip install cryptography
 
 WORKDIR /opt
 COPY ./src .

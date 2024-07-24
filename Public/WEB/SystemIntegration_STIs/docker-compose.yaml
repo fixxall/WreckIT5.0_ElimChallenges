@@ -1,9 +1,0 @@
-version: '2'
-
-services:
-
-  mysql:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: kocakGeming
-    command: --default-authentication-plugin=mysql_native_password

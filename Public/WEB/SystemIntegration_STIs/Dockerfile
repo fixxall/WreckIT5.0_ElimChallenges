@@ -1,10 +1,11 @@
-# Dockerfile
-FROM alpine:latest
+FROM python:3.10.6-slim-buster
 
-# RUN apk add --no-cache mysql-client bash curl
+RUN apt-get update
+RUN apt-get install -y nano socat
+# RUN apt-get install -y 
+RUN pip install -r requirements.txt
 
-# COPY ./insertdata.sh /insertdata.sh
+WORKDIR /opt
+COPY ./src .
 
-# RUN chmod +x /wait-for-it.sh /insertdata.sh
-
-# CMD ["/insertdata.sh"]
+CMD socat TCP-LISTEN:5000,fork,reuseaddr EXEC:'python -u ./app.py'

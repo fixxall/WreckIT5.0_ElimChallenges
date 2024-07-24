@@ -4,7 +4,7 @@ from cryptography.hazmat.primitives import serialization
 import random
 from secret import FLAG
 
-VILLAGE_NAME = b'NIISTIK__VILLAGE'
+VILLAGE_NAME = b'NIST_VILL'
 BASE = len(VILLAGE_NAME)
 
 class villageAuth:
@@ -16,14 +16,15 @@ class villageAuth:
 
     def keygen(self, base):
         secret = [random.getrandbits(base*i) for i in range(1,base)]
+        secret = [random.getrandbits(base) for i in range(1,base)]
         privs = [ec.derive_private_key(i, ec.SECP256K1()) for i in secret]
         pubs = [self.serialize(i.public_key()).hex() for i in privs]
         return pubs
     
     def verify(self, pub, signature, message):
-        pubkey = PublicKey(pub)
+        pubkey = PublicKey(pub, raw=True)
         sign = PrivateKey().ecdsa_deserialize(signature)
-        ver = pubkey.verify(message, sign) & (pub.hex() in self.pubkeys)
+        ver = pubkey.ecdsa_verify(message, sign) & (pubkey.serialize().hex() in self.pubkeys)
         return ver
     
     def getPub(self,):
@@ -33,7 +34,7 @@ def verifySign(village):
     signs = []
     pubs = []
     try:
-        for _ in range(BASE):
+        for _ in range(2*BASE//3):
             signature = bytes.fromhex(input("Your signature: "))
             pub = bytes.fromhex(input("Your publickey: "))
             valid = village.verify(pub,signature,b'look-at-base')
@@ -58,7 +59,7 @@ if __name__ == "__main__":
     print("-                                         -")
     print("-               WELCOME TO                -")
     print("-                   OUR                   -")
-    print("-                 VILLAGE                 -")
+    print("-            "+VILLAGE_NAME.decode()+" VILLAGE             -")
     print("-             --------------              -")
     print("-           feel free to use it           -")
     print("-                                         -")
