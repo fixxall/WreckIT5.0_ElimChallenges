@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-image: url('https://www.jkt48.com/images/logo.png');
+            background-image: url('https://thumb.viva.id/intipseleb/1265x711/2023/08/30/64eed1f229f4f-indira-jkt48.jpg');
             background-size: cover;
             background-position: center;
         }
