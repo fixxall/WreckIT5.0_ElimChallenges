@@ -1,5 +1,6 @@
-description:
-kinda guessy, but guess it!
+# chall: chall.pcap
+## desc:
+kinda guessy, but guess it
 
-poc:
-packet len is ascii
+## poc:
+len packet adalah ascii
