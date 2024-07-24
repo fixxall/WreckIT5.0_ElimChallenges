@@ -1,6 +1,9 @@
 ## chall:
 dist.rar
 
+## author:
+k.eii
+
 ## deskripsi:
 just simple rev
 
