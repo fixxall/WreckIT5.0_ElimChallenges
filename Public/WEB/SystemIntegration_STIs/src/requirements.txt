@@ -1,3 +1,4 @@
 mysql-connector-python==9.0.0
 flask==2.3.3
 pycryptodome==3.16.0
+python-dotenv==0.16.0

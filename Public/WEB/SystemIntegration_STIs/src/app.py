@@ -3,20 +3,23 @@ import mysql.connector
 from Crypto.Cipher import AES
 import string
 import random
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+app = Flask(__name__)
 das = string.ascii_letters + string.digits
 
-app = Flask(__name__)
-app.secret_key = 'your_secret_key'
-aes_key = b'a'*16
-aes_iv = b'b'*16
-seed = b'c'*16
+app.secret_key = os.getenv("APP_SECRET_KEY")
+aes_key = os.getenv("AES_KEY").encode()
+aes_iv = os.getenv("AES_IV").encode()
+seed = os.getenv("SEED").encode()
 
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="root",
-    database="sistem_integration"
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_DATABASE")
 )
 
 def filtering(mess):
@@ -118,6 +121,6 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port="5000",host="0.0.0.0")
 
 

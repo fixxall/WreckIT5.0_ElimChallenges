@@ -3,5 +3,5 @@ services:
   aya_number2:
     build: .
     ports:
-      - 50511:5000
+      - 50503:5000
     restart: always

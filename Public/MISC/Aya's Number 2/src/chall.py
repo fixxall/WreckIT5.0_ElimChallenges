@@ -17,6 +17,8 @@ while True:
     pad = ''
     if(x_inp==x and y_inp==y):
         print("Hehe benar itu")
+        print("Saya suka deret fibonaci")
+        nil = int(input("Berapa nilai dari deret ke S[S0*S1] jika S[0]=S0 dan S[1]=S1?"))
         print(flag)
         break
     else:

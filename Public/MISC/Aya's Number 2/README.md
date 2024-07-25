@@ -12,7 +12,7 @@ None
 
 ## Sources
 
-- [dist](./dist)
+- 
 
 ## Tags
 
@@ -21,6 +21,8 @@ None
 ## Exploit
 
 - Soal dukun
+- Binary Search masing-masing challenge
+- Fibonacci number use matrix
 
 ## Flag
 
@@ -30,7 +32,7 @@ WRECKIT50{hehehe_makasih_sudah_menebak_dan_menemani_belajar_fibonaci}
 
 ## connection
 
-nc wreckit.com 50502
+nc wreckit.com 50503
 
 ## Severity
 

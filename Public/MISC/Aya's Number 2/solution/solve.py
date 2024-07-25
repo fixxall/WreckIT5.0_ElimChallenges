@@ -8,7 +8,7 @@ def getin(x, y):
     io.recvuntil(b'S0? ')
     io.sendline(str(x).encode())
     io.recvuntil(b'S1? ')
-    io.sendline(str(x).encode())
+    io.sendline(str(y).encode())
     return io.recvline()[:-1]
 
 # Lab #1
@@ -36,4 +36,41 @@ def getin(x, y):
 # leftBottom = even + r
 # rightTop = odd + t
 # rightBottom = even + t
+# x < is r
+# y < is odd
 
+# findingX
+print(io.recvline())
+left = 1
+right = maxNum
+while True:
+    mid = (left+right)//2
+    hasil = getin(mid, 0)
+    symbol = hasil[-1:]
+    if(symbol==b'\t'):
+        right = mid
+    elif(symbol==b'\r'):
+        left = mid+1
+    else:
+        print("found X:",mid)
+        foundX = mid
+        break
+
+# findingY
+left = 1
+right = maxNum
+while True:
+    mid = (left+right)//2
+    hasil = getin(0, mid)
+    cnt_r = hasil.count(b"\r")
+    if(cnt_r%2==1):
+        left = mid+1
+    elif(cnt_r==0):
+        print("found Y:",mid)
+        foundY = mid
+        break
+    else:
+        right = mid
+
+flag = getin(foundX, foundY)
+print(flag)

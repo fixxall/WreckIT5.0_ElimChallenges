@@ -1,6 +1,6 @@
 version: "3"
 services:
-  randompag:
+  desa_nistik:
     build: .
     ports:
       - 50502:5000

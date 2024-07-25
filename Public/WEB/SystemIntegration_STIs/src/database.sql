@@ -1,5 +1,3 @@
-CREATE DATABASE sistem_integration;
-
 USE sistem_integration;
 
 CREATE TABLE users (
@@ -7,5 +5,3 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL,
     password VARCHAR(50) NOT NULL
 );
-
-INSERT INTO users (username, password) VALUES ('admin', 'admin'), ('user', 'user');
