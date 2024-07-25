@@ -19,5 +19,3 @@ COPY ./main.sh /main.sh
 RUN chmod +x /main.sh
 
 CMD ["/main.sh"]
-
-CMD ["python", "./app.py"]

