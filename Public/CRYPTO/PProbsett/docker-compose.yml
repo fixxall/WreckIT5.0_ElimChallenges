@@ -1,0 +1,7 @@
+version: "3"
+services:
+  PProbsett:
+    build: .
+    ports:
+      - 50509:5000
+    restart: always

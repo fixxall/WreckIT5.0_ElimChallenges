@@ -72,5 +72,14 @@ while True:
     else:
         right = mid
 
-flag = getin(foundX, foundY)
+temp = getin(foundX, foundY)
+print(temp)
+mod = 1000000000000000009
+
+from fibo import fibo
+io.recvuntil(b'S[1]=S1?')
+nil = fibo(foundX, foundY, mod)
+print(nil)
+io.sendline(str(nil).encode())
+flag = io.recvline()
 print(flag)

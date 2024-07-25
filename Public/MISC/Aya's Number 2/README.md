@@ -12,7 +12,7 @@ None
 
 ## Sources
 
-- 
+None
 
 ## Tags
 
@@ -23,6 +23,9 @@ None
 - Soal dukun
 - Binary Search masing-masing challenge
 - Fibonacci number use matrix
+- Linear recurrence 
+[Base_Case](https://math.stackexchange.com/questions/867394/how-to-compute-the-nth-number-of-a-general-fibonacci-sequence-with-matrix-multip)
+[Function](https://discuss.codechef.com/t/calculate-f-n-a-f-n-1-b-f-n-2-matrix-exponentiation/4971)
 
 ## Flag
 

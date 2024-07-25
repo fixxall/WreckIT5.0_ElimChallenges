@@ -1,4 +1,5 @@
 import random
+from fibo import fibo
 flag = b'WRECKIT50{hehehe_makasih_sudah_menebak_dan_menemani_belajar_fibonaci}'
 
 ganjil = [1,3,5,7]
@@ -18,9 +19,14 @@ while True:
     if(x_inp==x and y_inp==y):
         print("Hehe benar itu")
         print("Saya suka deret fibonaci")
-        nil = int(input("Berapa nilai dari deret ke S[S0*S1] jika S[0]=S0 dan S[1]=S1?"))
-        print(flag)
-        break
+        print("Berikut definisi fungsi yang saya gunakan:")
+        print("S[n] = S0 * S[n-1] + S1 * S[n-2]")
+        nil = int(input("Berapa nilai dari deret ke S[S0*S1] mod 1000000000000000009 jika S[0]=S0 dan S[1]=S1?"))
+        temp = fibo(x, y, 1000000000000000009)
+        if(nil==temp):
+            print("Love you: ",flag)
+        else:
+            print("Dont talk with me!! L:")
     else:
         if(x_inp<x): pad = '\r'
         elif(x_inp==x): pad = ''
