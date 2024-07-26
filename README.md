@@ -63,7 +63,7 @@ WRECKIT50{hell0W_olrd_!5Simpl3#}
 | 1   | Forensic    | The Magic of Word  | aodreamer    | - |
 | 2   | Forensic    | KliptoLogie  | aodreamer    | - |
 | 3   | Forensic    | kriminal  | hanz0    | - |
-| 4   | Forensic    | -  | VascoZ    | - |
+| 4   | Forensic    | MyHeroComedya | VascoZ    | - |
 | 5   | Web    | Survey Pemerintah  | rafliher    | nc localhost 8088 |
 | 6   | Web    | oshiku  | VascoZ    | nc localhost 8088 |
 | 7   | Web    | WotaButa  | VascoZ    | nc localhost 8088 |
