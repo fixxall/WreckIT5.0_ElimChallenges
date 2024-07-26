@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7011:5000"
+    volumes:
+      - ./src:/app
+      - ./flag.txt:/flag.txt
+    environment:
+      - FLASK_ENV=development
