@@ -21,7 +21,7 @@ Every service will use different port. To setting port use <code> docker-compose
 ```bash
 git clone https://github.com/fixxall/WreckIT5.0_ElimChallenges.git
 
-# Enter the directory of service. Example for p00-warmup:
+# Enter the directory of service. Example CRYPTO/example:
 cd CRYPTO/example
 
 # Compile environment
