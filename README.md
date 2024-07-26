@@ -65,8 +65,8 @@ WRECKIT50{hell0W_olrd_!5Simpl3#}
 | 3   | Forensic    | kriminal  | hanz0    | - |
 | 4   | Forensic    | MyHeroComedya | VascoZ    | - |
 | 5   | Web    | Survey Pemerintah  | rafliher    | nc localhost 8088 |
-| 6   | Web    | oshiku  | VascoZ    | nc localhost 8088 |
-| 7   | Web    | WotaButa  | VascoZ    | nc localhost 8088 |
+| 6   | Web    | oshiku  | VascoZ    | nc localhost 7012 |
+| 7   | Web    | WotaButa  | VascoZ    | nc localhost 7013 |
 | 8   | Web    | SystemIntegration_SITs  | wondPing    | nc localhost 8088 |
 | 9   | Pwn    | s1mple  | hanz0    | nc localhost 7021 |
 | 10   | Pwn    | slim  | hanz0    | nc localhost 7022 |
