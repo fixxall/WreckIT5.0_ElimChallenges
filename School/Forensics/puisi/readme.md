@@ -1,11 +1,40 @@
+# puisi
+
+Author: k.eii
+
 ## chall:
 https://drive.google.com/file/d/1iY1TOCPA3cR2KVV96B2kqEKARb960nOE/view?usp=sharing
 
-## deskripsi:
+## Description
+
 saya sedang belajar buat puisi, saya coba cari info dan latihan menggunakan laptop saya
 
-## Poc:
-Notepad++ backup cache (cek disitu puisinya. Salah satu puisi huruf awalnya kalau disusun jadi flag, rada dukun sih, tapi jelas kok ada keliatan ‘50’ nya)
+## Requirements
 
-## flag:
-``` WRECKIT50{SAYAMENCINTAIDIRINYALOVYUAWIKWOK} ```
+None
+
+## Sources
+
+-
+
+## Tags
+
+Notepad++, Cache, Backup Files
+
+## Exploit
+
+- Find Artifact (Notepad++)
+- Restore Artifact
+- Flagnya kata pertama dari puisi
+
+## Flag
+
+```
+WRECKIT50{SAYAMENCINTAIDIRINYALOVYUAWIKWOK}
+```
+## connection
+
+-
+
+## Severity
+Medium
