@@ -1,14 +1,33 @@
-## chall:
-chall.pyc
+# Babysnake
 
-## author:
-k.eii
+Author: k.eii
 
-## deskripsi:
+## Description
+
 silahkan puh, babyrevnya puh
 
-## Poc:
+## Requirements
+
+None
+
+## Sources
+
+-
+
+## Tags
+
+Python
+
+## Exploit
+
 decompile pyc, rev
 
-## flag:
+## Flag
 ``` WRECKIT50{b4by_pyth0n_c0mp1led_c0d3} ```
+
+## connection
+
+
+
+## Severity
+Easy

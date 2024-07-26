@@ -1,9 +1,36 @@
-# chall: 100.zip
-## desc:
-hey find what lies in here
+# broken-matryoshka
 
-## poc:
-5 byte pertama file zip dirusak, fix dan ekstrak rekursif
+Author: k.eii
 
-## flag:
-``` WRECKIT50{huhuhaha_hohohihe_gua_capek_ngezipnya_hehehhuhu_ez_lah} ```
+## Description
+
+rusak rusak rusakkkkk
+
+## Requirements
+
+None
+
+## Sources
+
+-
+
+## Tags
+
+Zip, Hex Fixing
+
+## Exploit
+
+- Fix Zip Header
+- Recursive fix 100 time/sampai file habis
+
+## Flag
+
+```
+WRECKIT50{huhuhaha_hohohihe_gua_capek_ngezipnya_hehehhuhu_ez_lah}
+```
+## connection
+
+-
+
+## Severity
+Medium

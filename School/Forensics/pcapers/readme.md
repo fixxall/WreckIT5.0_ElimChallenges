@@ -1,9 +1,36 @@
-# chall: chall.pcap
-## desc:
+# PCAPERS
+
+Author: k.eii
+
+## Description
+
 kinda guessy, but guess it
 
-## poc:
-len packet adalah ascii
+## Requirements
 
-## flag:
-``` WRECKIT50{l3ngth_of_th_pack3t?} ```
+None
+
+## Sources
+
+-
+
+## Tags
+
+PCAP, Length
+
+## Exploit
+
+- Packet Length into ASCII
+- Base64 Decode
+
+## Flag
+
+```
+WRECKIT50{l3ngth_of_th_pack3t?}
+```
+## connection
+
+-
+
+## Severity
+Medium

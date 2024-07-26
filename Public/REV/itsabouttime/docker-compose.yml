@@ -3,5 +3,5 @@ services:
   itsabouttime:
     build: .
     ports:
-      - "2222:22"
+      - "7031:22"
     container_name: itsabouttime

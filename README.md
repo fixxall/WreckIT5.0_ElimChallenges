@@ -88,4 +88,23 @@ WRECKIT50{hell0W_olrd_!5Simpl3#}
 
 | No  | Category  | Challenge Name       | Author      |  Connection                                                 |
 | --- | --------- | ------------------- | ----------- | ---------------------------------------------------- |
-| 1   | Crypto    | example  | wondPing    | nc localhost 8088 |
+| 1   | Forensic    | bipbop  | k.eii    | - |
+| 2   | Forensic    | broken-matryoshka  | k.eii    | - |
+| 3   | Forensic    | pcapers  | k.eii    | - |
+| 4   | Forensic    | puisi  | k.eii    | - |
+| 5   | Reverse    | babysnake  | k.eii    | - |
+| 6   | Reverse    | Ch#ck3r  | k.eii    | - |
+| 7   | Reverse    | finitstedt  | k.eii    | - |
+| 8   | Reverse    | letsgo  | k.eii    | - |
+| 9   | Web    | Cheemsweb  | k.eii    | nc localhost 10101 |
+| 10   | Web    | Hotnews  | VascoZ    | nc localhost 10102 |
+| 11   | Web    | -  | -    | nc localhost 10103 |
+| 12   | Web    | -  | -    | nc localhost 10104 |
+| 13   | Pwn    | bypass  | Sanapati Cyberstorm    | nc localhost 10201 |
+| 14   | Pwn    | *ptr  | Sanapati Cyberstorm    | nc localhost 10202 |
+| 15   | Pwn    | -  | -    | nc localhost 10203 |
+| 16   | Pwn    | -  | -    | nc localhost 10204 |
+| 17   | Crypto    | -  | -    | - |
+| 18   | Crypto    | -  | -    | - |
+| 19   | Crypto    | -  | -    | - |
+| 20   | Crypto    | -  | -    | - |
