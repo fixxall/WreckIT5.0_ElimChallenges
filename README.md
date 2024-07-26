@@ -96,14 +96,14 @@ WRECKIT50{hell0W_olrd_!5Simpl3#}
 | 6   | Reverse    | Ch#ck3r  | k.eii    | - |
 | 7   | Reverse    | finitstedt  | k.eii    | - |
 | 8   | Reverse    | letsgo  | k.eii    | - |
-| 9   | Web    | Cheemsweb  | k.eii    | - |
-| 10   | Web    | -  | -    | - |
-| 11   | Web    | -  | -    | - |
-| 12   | Web    | -  | -    | - |
-| 13   | Pwn    | -  | -    | - |
-| 14   | Pwn    | -  | -    | - |
-| 15   | Pwn    | -  | -    | - |
-| 16   | Pwn    | -  | -    | - |
+| 9   | Web    | Cheemsweb  | k.eii    | nc localhost 10101 |
+| 10   | Web    | Hotnews  | VascoZ    | nc localhost 10102 |
+| 11   | Web    | -  | -    | nc localhost 10103 |
+| 12   | Web    | -  | -    | nc localhost 10104 |
+| 13   | Pwn    | bypass  | Sanapati Cyberstorm    | nc localhost 10201 |
+| 14   | Pwn    | *ptr  | Sanapati Cyberstorm    | nc localhost 10202 |
+| 15   | Pwn    | -  | -    | nc localhost 10203 |
+| 16   | Pwn    | -  | -    | nc localhost 10204 |
 | 17   | Crypto    | -  | -    | - |
 | 18   | Crypto    | -  | -    | - |
 | 19   | Crypto    | -  | -    | - |
