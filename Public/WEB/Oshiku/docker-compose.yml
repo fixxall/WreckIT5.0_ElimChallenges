@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "7011:5000"
+      - "7012:5000"
     volumes:
       - ./src:/app
       - ./flag.txt:/flag.txt
