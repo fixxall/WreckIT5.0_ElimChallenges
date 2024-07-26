@@ -32,14 +32,14 @@ None
 
 ## Flag
 
-```
+```bash
 WRECKIT50{JanganLupaSetelah_DevAPP_UjiTestCase!!}
 ```
 
 ## connection
+
 http://wreckit.com:7014/
 
-
 ## Severity
-MEDIUM
 
+MEDIUM
