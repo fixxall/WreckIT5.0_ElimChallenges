@@ -37,7 +37,7 @@ WRECKIT50{JanganLupaSetelah_DevAPP_UjiTestCase!!}
 ```
 
 ## connection
-nc wreckit.com 50207
+http://wreckit.com:7014/
 
 
 ## Severity

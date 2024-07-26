@@ -35,7 +35,7 @@ WRECKIT50{hehehe_makasih_sudah_menebak_dan_menemani_belajar_fibonaci}
 
 ## connection
 
-nc wreckit.com 50503
+nc wreckit.com 7052
 
 ## Severity
 

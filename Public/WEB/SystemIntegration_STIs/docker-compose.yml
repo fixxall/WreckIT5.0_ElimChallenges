@@ -24,7 +24,7 @@ services:
     depends_on:
       - mysql
     ports:
-      - "50207:5000"
+      - "7014:5000"
     restart: always
     networks:
       - backend
