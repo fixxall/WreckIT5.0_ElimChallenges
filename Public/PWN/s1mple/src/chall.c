@@ -39,7 +39,7 @@ void get_user_input() {
 
     for (int i = 0; i < 80; i++) {
         if (buffer[i] == '\0') {
-            printf("No cheat allowed!\n");
+            printf("Fill them all!\n");
             exit(1);
         }
     }

@@ -17,12 +17,16 @@ None
 ## Tags
 
 - ECDSA 
-- ECC
+- secp256k1
+- Failing serialization
 
 ## Exploit
 
-- BruteForce Priv keys
-- ecdsa non-deterministik
+- BruteForce private keys
+- Collision header serialization secp256k1 module
+- Deterministik on ecdsa
+
+- [solution](./solution)
 
 ## Flag
 
@@ -32,7 +36,7 @@ WRECKIT50{Y34h_y0uu_kN00w1n9_d3terM1n15ttik_NOWW}
 
 ## connection
 
-nc wreckit.com 50502
+nc wreckit.com 7043
 
 ## Severity
 EAZY

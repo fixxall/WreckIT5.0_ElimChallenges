@@ -1,0 +1,7 @@
+version: "3"
+services:
+  aya_number2:
+    build: .
+    ports:
+      - 7052:5000
+    restart: always
