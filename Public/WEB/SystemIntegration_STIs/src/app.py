@@ -29,7 +29,7 @@ def filtering(mess):
     return True
 
 def filteringLevel2(mess):
-    blacklist = ["request", "config", ".", "class", "name", "built", "module", "item", "import", "os", "open", "read", "flag"]
+    blacklist = ["flask", "mysql", "Crypto", "string", "random", "def", "commands", "subprocess", "sys", "pty", "imp", "exec", "dict", "request", "config", ".", "class", "name", "built", "module", "item", "os", "open", "read", "flag"]
     for i in blacklist:
         if i in mess:
             return False
