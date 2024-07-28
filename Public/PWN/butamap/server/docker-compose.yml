@@ -1,0 +1,10 @@
+version: "3"
+services:
+  butamap:
+    image: butamap
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "16968:16968"

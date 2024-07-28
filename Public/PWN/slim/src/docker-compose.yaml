@@ -2,11 +2,12 @@ version: "3.8"
 
 services:
   vulnerable-ssh:
-    build: .
+    build:
+      context: .
+      args:
+        ROOT_PASSWORD: Wm9GRuuK2U1IPcMz
     ports:
-      - "2222:22"
-    environment:
-      - ROOT_PASSWORD=Wm9GRuuK2U1IPcMz
+      - "7052:22"
     container_name: openssh_ctf
     networks:
       - ctf_network
