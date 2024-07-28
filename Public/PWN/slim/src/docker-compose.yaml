@@ -10,7 +10,7 @@ services:
     volumes:
       - flag_volume:/destination
     ports:
-      - "22:22"
+      - "7055:22"
     restart: unless-stopped
 
 volumes:
