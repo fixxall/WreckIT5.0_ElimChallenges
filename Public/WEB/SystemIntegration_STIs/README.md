@@ -38,7 +38,7 @@ WRECKIT50{JanganLupaSetelah_DevAPP_UjiTestCase!!}
 
 ## connection
 
-http://wreckit.com:7014/
+http://188.166.247.108:7014/
 
 ## Severity
 
