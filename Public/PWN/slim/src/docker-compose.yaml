@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
+    args:
       - ROOT_PASSWORD="doignwefnaldfnasnddie!!!89120"
     volumes:
       - flag_volume:/destination
