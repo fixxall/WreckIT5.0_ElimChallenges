@@ -1,0 +1,11 @@
+version: '3'
+services:
+  escaqe:
+    image: escaqe
+    build: .
+    restart: always
+    environment:
+      - TERM=xterm
+    ports:
+      - "7125:7125"
+      - "7126:7126"
