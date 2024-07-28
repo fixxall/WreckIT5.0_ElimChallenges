@@ -18,7 +18,7 @@ while True:
 	hash_value1 = HORTEX(X_hex)
 	hash_value2 = HORTEX(Y_hex)
 	
-	if hash_value1 == hash_value2:
+	if hash_value1 == hash_value2 and X_hex != Y_hex:
 		print("New couple is matched :). Here your flag WRECKIT50{REDACTED}")
 		break
 	else:
