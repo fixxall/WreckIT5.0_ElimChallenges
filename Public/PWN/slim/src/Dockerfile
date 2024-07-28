@@ -1,6 +1,6 @@
 FROM debian:12.5-slim
 
-RUN apt-get update && apt-get install -y openssh-server sudo && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y e2fsprogs && apt-get install -y openssh-server sudo && rm -rf /var/lib/apt/lists/*
 
 ARG ROOT_PASSWORD
 RUN echo "root:${ROOT_PASSWORD}" | chpasswd
