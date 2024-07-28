@@ -23,7 +23,7 @@ def query_database(name):
 def index():
     role = session.get('role')
     if role == "admin":
-        return redirect(url_for('admin'))
+        return redirect(url_for('index.html'))
     elif role == "guest":
         return redirect(url_for('guest'))
     else:
