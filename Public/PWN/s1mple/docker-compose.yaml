@@ -6,5 +6,5 @@ services:
     container_name: ayas_humber
     restart: on-failure
     ports:
-      - "50651:8000"
+      - "7051:8000"
     network_mode: bridge

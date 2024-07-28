@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   escaqe:
     image: escaqe
@@ -7,5 +7,5 @@ services:
     environment:
       - TERM=xterm
     ports:
-      - "7125:7125"
-      - "7126:7126"
+      - "7054:7125"
+      - "7055:7126"
