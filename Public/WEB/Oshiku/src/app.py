@@ -1,12 +1,11 @@
-from flask import Flask, render_template, request, redirect, jsonify, session
+from flask import *
 import sqlite3
 import os
 import subprocess
 import os
 
 app = Flask(__name__)
-byte = os.urandom(8)
-app.secret_key = os.urandom
+app.secret_key = 'os.urandom(8)'
 
 # Database connection
 DATABASE = "database.db"
