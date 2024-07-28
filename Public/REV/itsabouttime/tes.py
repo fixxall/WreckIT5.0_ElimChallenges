@@ -3,8 +3,8 @@ import io
 import tkinter as tk
 from tkinter import messagebox
 
-hostname = "103.84.207.46"
-port = 2222
+hostname = "137.184.250.54"
+port = 7031
 username = "mack"
 private_key = """
 -----BEGIN OPENSSH PRIVATE KEY-----

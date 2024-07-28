@@ -3,7 +3,7 @@ version: "2"
 services:
   main:
     build: .
-    container_name: s1mple
+    container_name: ayas_humber
     restart: on-failure
     ports:
       - "50651:8000"

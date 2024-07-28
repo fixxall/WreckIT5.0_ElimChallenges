@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    volumes:
+      - ./src/database.sql:/docker-entrypoint-initdb.d/database.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - backend
+
+  system_integration:
+    build:
+      context: .
+      args:
+        FLAG: ${FLAG}
+    depends_on:
+      - mysql
+    ports:
+      - "50207:5000"
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
