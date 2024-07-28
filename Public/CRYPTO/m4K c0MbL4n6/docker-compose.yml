@@ -1,6 +1,6 @@
 version: "3"
 services:
-  desa_nistik:
+  makcomblang:
     build: .
     ports:
       - 6969:5000

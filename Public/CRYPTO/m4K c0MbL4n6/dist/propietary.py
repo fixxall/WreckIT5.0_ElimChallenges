@@ -1,12 +1,8 @@
 import math
 
-# Fungsi pendukung
 def biner_ke_hex(biner):
-    # Konversi dari biner ke desimal
     desimal = int(biner, 2)
-    # Konversi dari desimal ke heksadesimal
     heksadesimal = hex(desimal)
-    # Menghilangkan prefix '0x'
     return heksadesimal[2:]
 
 def float_bin(my_number, places=3): 
@@ -110,7 +106,6 @@ def transform_f(x):
     return ''.join(blocks)
 
 def convert_to_32bit_hex(input_hex):
-    # Mengonversi input hexadecimal menjadi format 32 bit biner tanpa spasi
     input_int = int(input_hex[:8], 16)  # Ambil 8 digit pertama jika lebih panjang dari 8 digit
     bit_string = format(input_int, '032b')  # Konversi integer ke 32 bit biner dengan leading zeros
     
@@ -118,27 +113,23 @@ def convert_to_32bit_hex(input_hex):
 
 # Fungsi hash HORTEX
 def HORTEX(input_hex):
-    # Padding
     X_bin = convert_to_32bit_hex(input_hex)
     pad_len = (64 - (len(X_bin) % 64)) % 64
     X_padded = X_bin + '1' + '0' * (pad_len - 1)
     
-    # Fase Inisialisasi
     r, c = 64, 192
     state = '0' * (r + c)
-    
-    # Ambil 64 MSB dari state untuk XOR dengan blok pesan
+
     state_int = int(state[:r], 2)
     block_int = int(X_padded, 2)
     updated_state = format(state_int ^ block_int, '064b') + '0'*c
     after_abs = transform_f(updated_state)
-    # Fase Squeezing
+
     s0 = transform_f(after_abs)
     h1 = s0[:r]
     state = transform_f(s0)
     h2 = state[:r]
     
-    # Mengonversi hasil squeezing ke dalam format hexadesimal
     h1_hex = format(int(h1, 2), '016x')
     h2_hex = format(int(h2, 2), '016x')
     return h1_hex + h2_hex

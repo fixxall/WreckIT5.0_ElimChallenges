@@ -1,4 +1,15 @@
 from propietary import *
+def print_diagram():
+    diagram = """
+    Sistem Penjodohan oleh Mak Comblang. Semoga cocok :)
+    """
+
+    print(diagram)
+
+if __name__ == "__main__":
+    print_diagram()
+
+
 
 while True:
 	X_hex = input('choose your man (hex): ')
