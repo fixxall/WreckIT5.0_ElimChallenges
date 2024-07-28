@@ -4,7 +4,7 @@ Author: [wondPing](https://github.com/fixxall)
 
 ## Description
 
-RO adalah seorang kepala desa yang sangat populer. Hal itu disebabkan karena perilaku dan sikapnya. Stabil, tetap, konsisten dan teratur serta beraturan menjadi hal yang mendasarinya dalam menjadi kepala desa. Dari situ terdapat syarat untuk masuk desa RO, yaitu dengan melakukan 32x autentikasi.
+RO adalah seorang kepala desa yang sangat populer. Hal itu disebabkan karena perilaku dan sikapnya. Stabil, tetap, konsisten dan teratur serta beraturan menjadi hal yang mendasarinya dalam menjadi kepala desa. Dari situ terdapat syarat untuk masuk desa RO, yaitu dengan melakukan 6x autentikasi.
 
 ## Requirements
 
