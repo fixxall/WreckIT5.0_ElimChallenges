@@ -25,8 +25,7 @@ RUN echo "root:${ROOT_PASSWORD}" | chpasswd
 RUN mkdir /var/run/sshd
 
 # Copy flag file and SSH config
-COPY ./flag.txt /flag.txt
-COPY sshd_config /usr/local/etc/sshd_config
+COPY ./flag.txt /var/tmp/flag.txt
 
 # Expose SSH port
 EXPOSE 22
