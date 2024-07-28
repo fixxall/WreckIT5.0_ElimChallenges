@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  vulnerable_app:
+    build: ./vulnerable_app
+    container_name: vulnerable_app
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    networks:
+      - ctf_net
+    ports:
+      - "7055:8080"
+
+  flag_container:
+    build: ./flag_container
+    container_name: flag_container
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    networks:
+      - ctf_net
+    entrypoint: tail -f /dev/null
+
+networks:
+  ctf_net:

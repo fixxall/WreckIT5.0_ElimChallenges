@@ -1,52 +1,71 @@
 body {
-    background-color: hotpink;
-    color: white;
-     display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
-      font-family: "Roboto Mono", monospace;}
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
 .container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: black;
-    width: 75%;
-    border: 2px solid black;
-    box-sizing: border-box;
-    position: relative; /* Added */
+    width: 350px;
 }
 
 .logo {
-    width: 25%;
-    border-radius: 10px;
-    border: 2px solid black;
-    margin-bottom: 10px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #ff66b2;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    color: #ff66b2;
+    font-weight: bold;
 }
 
 select {
-    font-family: "Roboto Mono", monospace;
-    padding: 8px;
-    border-radius: 8px;
-    background-color: purple;
-    color: white;
-    border: none;
-    outline: none;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #ff66b2;
+    border-radius: 5px;
+    background-color: #fff0f6;
+    color: #333;
+    font-size: 16px;
 }
 
 button {
-    font-family: "Roboto Mono", monospace;
-    padding: 10px 20px;
-    border-radius: 20px;
-    background-color: purple;
-    color: white;
+    background-color: #ff66b2;
+    color: #ffffff;
     border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
     cursor: pointer;
-    width: 25%;
-    margin-top: 10px;
-    transition: background-color 0.3s;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #560BAD; /* Darker shade of purple on hover */
+    background-color: #e0559a;
+}
+
+.biography {
+    margin-top: 20px;
+    text-align: left;
+    color: #555;
+}
+
+.biography h2 {
+    color: #ff66b2;
 }
