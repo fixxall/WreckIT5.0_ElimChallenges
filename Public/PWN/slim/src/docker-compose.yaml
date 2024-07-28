@@ -1,17 +1,8 @@
 version: "3.8"
 
 services:
-  flagservice:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      - ROOT_PASSWORD=43ydfwfqioen!@#0odsl
-    volumes:
-      - flag_volume:/destination
+  ssh_challenge:
+    build: .
     ports:
-      - "7055:22"
+      - "7055:22" # Map port 7055 on the host to port 22 in the container
     restart: unless-stopped
-
-volumes:
-  flag_volume:
