@@ -5,12 +5,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    args:
-      - ROOT_PASSWORD="doignwefnaldfnasnddie!!!89120"
+    environment:
+      - ROOT_PASSWORD=43ydfwfqioen!@#0odsl
     volumes:
       - flag_volume:/destination
     ports:
-      - "7055:22"
+      - "22:22"
     restart: unless-stopped
 
 volumes:

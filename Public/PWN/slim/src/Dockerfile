@@ -2,7 +2,8 @@ FROM debian:12.5-slim
 
 RUN apt-get update && apt-get install -y openssh-server sudo cron && rm -rf /var/lib/apt/lists/*
 
-ARG ROOT_PASSWORD
+ENV ROOT_PASSWORD your_root_password
+
 RUN echo "root:${ROOT_PASSWORD}" | chpasswd
 
 RUN mkdir /var/run/sshd
