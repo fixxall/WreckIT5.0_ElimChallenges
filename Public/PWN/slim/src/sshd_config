@@ -1,3 +1,56 @@
+# SSH Daemon Configuration
+
+# Listen on port 22
+Port 22
+
+# Use the default SSH protocol 2
+Protocol 2
+
+# Listen on all interfaces
+ListenAddress 0.0.0.0
+
+# Permit root login with password (for this specific use case, can be disabled for more security)
 PermitRootLogin yes
+
+# Maximum number of authentication attempts
+MaxAuthTries 3
+
+# Disable PAM authentication
+UsePAM no
+
+# Allow password authentication
 PasswordAuthentication yes
-Subsystem sftp internal-sftp
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+# LogLevel: INFO is a good compromise between verbosity and usefulness
+LogLevel INFO
+
+# Disable DNS lookups for clients
+UseDNS no
+
+# Allow TCP forwarding
+AllowTcpForwarding yes
+
+# Allow X11 forwarding
+X11Forwarding no
+
+# Disable sftp server
+Subsystem sftp /usr/lib/openssh/sftp-server
+
+# Deny empty passwords
+PermitEmptyPasswords no
+
+# Enable strict modes for enhanced security
+StrictModes yes
+
+# Limit connections from the same IP
+MaxSessions 10
+MaxStartups 10:30:100
+
+# Disable root login via ssh with password (best practice)
+# PermitRootLogin prohibit-password
+
+# You may uncomment the above line and comment the PermitRootLogin yes line for more security
+
