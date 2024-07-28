@@ -15,4 +15,4 @@ COPY ./ynetd /usr/bin/ynetd
 RUN chmod 500 /home/ctf/launch.sh && chown -R ctf:ctf /home/ctf && touch /var/log/challog.txt && chown ctf:ctf /var/log/challog.txt
 
 
-CMD ["ynetd", "-lt", "28800", "-p", "16968", "-sh", "y", "/home/ctf/launch.sh"]
+CMD ["/usr/bin/ynetd", "-lt", "28800", "-p", "16968", "-sh", "y", "/home/ctf/launch.sh"]
