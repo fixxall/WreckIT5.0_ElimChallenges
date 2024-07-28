@@ -1,8 +1,0 @@
-version: "3.8"
-
-services:
-  ssh_challenge:
-    build: .
-    ports:
-      - "7055:22" # Map port 7055 on the host to port 22 in the container
-    restart: unless-stopped
