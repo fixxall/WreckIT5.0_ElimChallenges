@@ -1,8 +1,14 @@
 # Start with an official Ubuntu base image
 FROM ubuntu:latest
 
-# Install OpenSSH server and cron
-RUN apt-get update && apt-get install -y openssh-server cron
+# Install required dependencies
+RUN apt-get update && \
+    apt-get install -y wget software-properties-common && \
+    add-apt-repository ppa:costamagnagianfranco/openssh -y && \
+    apt-get update
+
+# Install OpenSSH 9.7 and cron
+RUN apt-get install -y openssh-server=1:9.7p1-1~ppa1~ubuntu22.04.1 cron
 
 # Create necessary directories
 RUN mkdir /var/run/sshd
