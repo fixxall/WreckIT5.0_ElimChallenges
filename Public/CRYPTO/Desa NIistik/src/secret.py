@@ -1,0 +1,1 @@
+FLAG = b"WRECKIT50{Y34h_y0uu_kN00w1n9_d3terM1n15ttik_NOWW}"

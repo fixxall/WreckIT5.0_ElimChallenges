@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.6
+    restart: always
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+      - ./db-volume:/var/lib/mysql
+      - ./mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+    environment:
+      - MYSQL_DATABASE=wotasqli
+      - MYSQL_USER=wotasqli
+      - MYSQL_PASSWORD=wotasqli
+      - MYSQL_RANDOM_ROOT_PASSWORD=1
+  web:
+    build: .
+    depends_on:
+      - mysql
+    ports:
+      - '7013:80'
+    volumes:
+      - ./logs:/var/log/apache2
+      - ./src/:/var/www/html/
+    stdin_open: true

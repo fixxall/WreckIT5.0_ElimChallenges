@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  vulnerable-ssh:
+    build: .
+    ports:
+      - "2222:22"
+    environment:
+      - ROOT_PASSWORD=Wm9GRuuK2U1IPcMz
+    container_name: openssh_ctf
+    networks:
+      - ctf_network
+
+networks:
+  ctf_network:
+    driver: bridge

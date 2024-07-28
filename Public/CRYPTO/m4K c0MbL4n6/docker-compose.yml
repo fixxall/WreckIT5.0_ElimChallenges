@@ -1,0 +1,7 @@
+version: "3"
+services:
+  desa_nistik:
+    build: .
+    ports:
+      - 7043:5000
+    restart: always
