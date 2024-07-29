@@ -68,9 +68,9 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        cursor = db.cursor()
         try:
             query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
-            cursor = db.cursor()
             cursor.execute(query)
             user = cursor.fetchone()
             

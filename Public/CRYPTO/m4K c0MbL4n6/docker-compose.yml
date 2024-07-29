@@ -1,0 +1,7 @@
+version: "3"
+services:
+  makcomblang:
+    build: .
+    ports:
+      - 6969:5000
+    restart: always

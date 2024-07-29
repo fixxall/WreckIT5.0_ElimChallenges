@@ -4,7 +4,9 @@ Author: [wondPing](https://github.com/fixxall)
 
 ## Description
 
-
+Membuat signature di kehidupan RSA.
+Membuat TTE pada pdf.
+Membuat Serangan menggunakan matrix.
 
 ## Requirements
 
@@ -16,19 +18,18 @@ None
 
 ## Tags
 
-- 
+- DSA
+- RSA
 
 ## Exploit
 
-- BruteForce private keys
-- Collision header serialization secp256k1 module
-- Deterministik on ecdsa
+- Using LLL for recovery private key
 
 - [solution](./solution)
 
 ## Flag
 
-```
+```text
 WRECKIT50{##secret##!-----___-------******()^_^()******-------___-----!##sharing##}
 ```
 
@@ -37,5 +38,5 @@ WRECKIT50{##secret##!-----___-------******()^_^()******-------___-----!##sharing
 nc wreckit.com 50502
 
 ## Severity
-EAZY
 
+EAZY

