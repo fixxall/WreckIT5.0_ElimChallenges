@@ -5,7 +5,7 @@ from secret import enc_flag, prime_list
 e = 65537
 def RSA(pt):
     m = bytes_to_long(pt.encode())
-    p,q = random.choice(prime), random.choice(prime)
+    p,q = random.choice(prime_list), random.choice(prime_list)
     n = p*q
     c = pow(m,e,n)
     
