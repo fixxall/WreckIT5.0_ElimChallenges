@@ -1,0 +1,7 @@
+version: "3"
+services:
+  allyoucanenc:
+    build: .
+    ports:
+      - 10041:5000
+    restart: always
