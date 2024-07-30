@@ -108,4 +108,4 @@ WRECKIT50{hell0W_olrd_!5Simpl3#}
 | 18   | Crypto    | MatPem  | 1kazzz    | - |
 | 19   | Crypto    | Paman Sam  | 1kazzz    | - |
 | 20   | Crypto    | call me Manyrsa  | 1kazzz    | - |
-| 21   | Crypto    | hma45  | 1kazzz    | - |
+| 21   | Crypto    | hum45  | 1kazzz    | - |
