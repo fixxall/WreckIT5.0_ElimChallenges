@@ -27,7 +27,7 @@ None
 WRECKIT50{RSA_8u4t4Nmu??_NUm3r0_Un0}
 ```
 ## connection
-nc wreckit.com 10041
+nc 137.184.250.54 10041
 
 ## Severity
 HARD
