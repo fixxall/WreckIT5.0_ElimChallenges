@@ -104,7 +104,7 @@ WRECKIT50{hell0W_olrd_!5Simpl3#}
 | 14   | Pwn    | *ptr  | Sanapati Cyberstorm    | nc localhost 10202 |
 | 15   | Pwn    | -  | -    | nc localhost 10203 |
 | 16   | Pwn    | -  | -    | nc localhost 10204 |
-| 17   | Crypto    | -  | -    | - |
-| 18   | Crypto    | -  | -    | - |
-| 19   | Crypto    | -  | -    | - |
-| 20   | Crypto    | -  | -    | - |
+| 17   | Crypto    | All You Can Encrypt  | 1kazzz    | nc localhost 10041 |
+| 18   | Crypto    | MatPem  | 1kazzz    | - |
+| 19   | Crypto    | Paman Sam  | 1kazzz    | - |
+| 20   | Crypto    | hum45  | 1kazzz    | - |

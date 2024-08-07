@@ -7,7 +7,7 @@ from cryptography.hazmat.primitives import hashes
 from coincurve import PrivateKey as PrK, PublicKey as PbK, verify_signature
 from coincurve.utils import int_to_bytes_padded
 
-io = process(['python3','../src/chall.py'])
+io = remote('188.166.247.108', '7043')
 
 def getpub():
     io.recvuntil(b'choosen: ')

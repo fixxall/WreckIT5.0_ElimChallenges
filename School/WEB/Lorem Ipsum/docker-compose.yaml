@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  main:
+    build: .
+    container_name: w06-loremipsum2
+    restart: on-failure
+    ports:
+      - "10006:80"
+    network_mode: bridge
