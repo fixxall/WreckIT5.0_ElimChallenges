@@ -68,23 +68,21 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        cursor = db.cursor()
-        try:
-            query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
-            cursor.execute(query)
-            user = cursor.fetchone()
-            
-            cursor.fetchall() 
-            if user:
-                session['username'] = username
-                return redirect(url_for('index'))
-            else:
-                error_message = "Invalid credentials."
-        except mysql.connector.Error as err:
-            print(f"Error: {err}")
-        finally:
-            if cursor is not None:
-                cursor.close() 
+        with db.cursor() as cursor:
+            try:
+                query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
+                cursor.execute(query)
+                user = cursor.fetchone()
+                
+                cursor.fetchall() 
+                if user:
+                    session['username'] = username
+                    return redirect(url_for('index'))
+                else:
+                    error_message = "Invalid credentials."
+            except mysql.connector.Error as err:
+                print(f"Error: {err}")
+        db.commit()
     return render_template('login.html', error_message=error_message)
 
 @app.route('/logout')
