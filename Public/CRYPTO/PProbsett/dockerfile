@@ -2,7 +2,7 @@ FROM python:3.10-slim-buster
 
 RUN apt-get update
 RUN apt-get install -y nano socat
-RUN apt-get install sagemath
+RUN apt-get install -y sagemath
 RUN pip install pycryptodome
 
 WORKDIR /opt
