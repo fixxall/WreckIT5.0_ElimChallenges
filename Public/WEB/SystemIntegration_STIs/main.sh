@@ -15,6 +15,8 @@ SEED=$(echo "$SEED" | tr -d '\r\n')
 
 >&2 echo "MySQL is up - initialization"
 
+sleep 5
+
 mysql -h"$DB_HOST" -u"$DB_USER" -p"$DB_PASSWORD" "$DB_DATABASE" -e "INSERT INTO users (username, password) VALUES ('admin', '$SEED'), ('user', 'user');"
 
 exec python -u /opt/app.py
