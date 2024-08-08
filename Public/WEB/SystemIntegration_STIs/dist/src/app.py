@@ -23,6 +23,13 @@ def get_db_connection():
         database=os.getenv("DB_DATABASE")
     )
 
+db = mysql.connector.connect(
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    database=os.getenv("DB_DATABASE")
+)
+
 def filtering(mess):
     for i in mess:
         if(i not in das):
@@ -63,9 +70,6 @@ def SecureFunctionDecrypt(ciphertext):
     plaintext = unpad(cipher.decrypt(ct),16)
     return str(plaintext)[2:-1]
 
-
-db = get_db_connection()
-
 @app.route('/', methods=['GET', 'POST'])
 def login():
     error_message = None
@@ -74,7 +78,7 @@ def login():
         password = request.form['password']
         if not db.is_connected():
             db = get_db_connection()
-            
+
         with db.cursor() as cursor:
             try:
                 query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
