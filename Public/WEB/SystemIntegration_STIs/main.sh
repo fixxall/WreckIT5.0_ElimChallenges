@@ -17,6 +17,7 @@ SEED=$(echo "$SEED" | tr -d '\r\n')
 
 sleep 2
 
-mysql -h"$DB_HOST" -u"$DB_USER" -p"$DB_PASSWORD" "$DB_DATABASE" -e "INSERT INTO users (username, password) VALUES ('admin', '$SEED'), ('user', 'user');" | tee /opt/main.log
+mysql -h"$DB_HOST" -u"$DB_USER" -p"$DB_PASSWORD" "$DB_DATABASE" -e "SELECT 1;" | tee /opt/main.log 
+mysql -h"$DB_HOST" -u"$DB_USER" -p"$DB_PASSWORD" "$DB_DATABASE" -e "INSERT INTO users (username, password) VALUES ('admin', '$SEED'), ('user', 'user');" 
 
 exec python -u /opt/app.py 
