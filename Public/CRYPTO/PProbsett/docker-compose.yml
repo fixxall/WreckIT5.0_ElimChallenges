@@ -1,6 +1,6 @@
 version: "3"
 services:
-  PProbsett:
+  pprobsett:
     build: .
     ports:
       - 50509:5000
