@@ -15,12 +15,13 @@ aes_key = os.getenv("AES_KEY").encode()
 aes_iv = os.getenv("AES_IV").encode()
 seed = os.getenv("SEED").encode()
 
-db = mysql.connector.connect(
-    host=os.getenv("DB_HOST"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD"),
-    database=os.getenv("DB_DATABASE")
-)
+def get_db_connection():
+    return mysql.connector.connect(
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_DATABASE")
+    )
 
 def filtering(mess):
     for i in mess:
@@ -62,12 +63,18 @@ def SecureFunctionDecrypt(ciphertext):
     plaintext = unpad(cipher.decrypt(ct),16)
     return str(plaintext)[2:-1]
 
+
+db = get_db_connection()
+
 @app.route('/', methods=['GET', 'POST'])
 def login():
     error_message = None
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        if not db.is_connected():
+            db = get_db_connection()
+            
         with db.cursor() as cursor:
             try:
                 query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"

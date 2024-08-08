@@ -33,6 +33,10 @@ None
 WRECKIT50{##secret##!-----___-------******()^_^()******-------___-----!##sharing##}
 ```
 
+## hint
+
+- Search for Paper: MODIFIED RSA IN THE DOMAINS OF GAUSSIAN INTEGERS AND POLYNOMIALS OVER FINITE FIELDS
+
 ## connection
 
 nc wreckit.com 50502
