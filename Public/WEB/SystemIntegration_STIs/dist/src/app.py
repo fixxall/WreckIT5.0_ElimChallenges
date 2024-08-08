@@ -23,13 +23,6 @@ def get_db_connection():
         database=os.getenv("DB_DATABASE")
     )
 
-db = mysql.connector.connect(
-    host=os.getenv("DB_HOST"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD"),
-    database=os.getenv("DB_DATABASE")
-)
-
 def filtering(mess):
     for i in mess:
         if(i not in das):
@@ -76,9 +69,8 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        if not db.is_connected():
-            db = get_db_connection()
-
+        db = get_db_connection()
+        
         with db.cursor() as cursor:
             try:
                 query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
