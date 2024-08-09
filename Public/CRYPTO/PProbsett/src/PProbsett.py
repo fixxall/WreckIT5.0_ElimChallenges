@@ -1,6 +1,6 @@
 from sage.all import Integer, GF, gcd
 import random
-from Crypto.Util.number import getPrime, bytes_to_long
+from Crypto.Util.number import getPrime, bytes_to_long, long_to_bytes
 from secret import tets
 import hashlib
 
@@ -45,3 +45,6 @@ class PProbsett:
 
     def getNonce(self, ):
         return self.nonce
+
+    def selfKey(self, ):
+        return hashlib.sha256(long_to_bytes(self.k)).hexdigest()

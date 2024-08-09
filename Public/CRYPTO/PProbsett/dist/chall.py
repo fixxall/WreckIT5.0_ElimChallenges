@@ -27,7 +27,7 @@ while True:
     inp = input("]: ")
     if(inp=='1'):
         answer = input("answer: ")
-        if(answer==i_have_secret_contd):
+        if(answer==i_have_secret_contd.decode()):
             print(f"Successfully, and this is your flag: {FLAG}")
         else:
             print(f"You are not our team, access denied.")
@@ -42,7 +42,8 @@ while True:
     elif(inp=='4'):
         print("I need some access code for authenticate you")
         inp = input("10 first secretCode: ")
-        if(inp==secretCode[:10]):
+        inp2 = input("10 first selfKey: ")
+        if(inp==secretCode[:10] and inp2==cipher.selfKey()[:10]):
             print(f"your enc_nonce: {pow(cipher.getNonce(), 5, RSAfuzzingN)}")
     elif(inp=='exit'):
         exit(1)

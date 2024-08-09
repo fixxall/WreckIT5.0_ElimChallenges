@@ -4,9 +4,7 @@ Author: [wondPing](https://github.com/fixxall)
 
 ## Description
 
-Membuat signature di kehidupan RSA.
-Membuat TTE pada pdf.
-Membuat Serangan menggunakan matrix.
+Halo gaes, probsetnya bingung bikin soal karena yang ngerjain pada suhu. Yodahlah tinggal combine aja basic-basic rsa biar mindblowing.
 
 ## Requirements
 
@@ -36,8 +34,8 @@ WRECKIT50{##secret##!-----___-------******()^_^()******-------___-----!##sharing
 ## hint
 
 - Search for Paper: MODIFIED RSA IN THE DOMAINS OF GAUSSIAN INTEGERS AND POLYNOMIALS OVER FINITE FIELDS
+- HNP + LLL
 - Franklin Reiter
-- HNP using LLL
 
 ## connection
 

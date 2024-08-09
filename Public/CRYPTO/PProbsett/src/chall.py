@@ -42,7 +42,8 @@ while True:
     elif(inp=='4'):
         print("I need some access code for authenticate you")
         inp = input("10 first secretCode: ")
-        if(inp==secretCode[:10]):
+        inp2 = input("10 first selfKey: ")
+        if(inp==secretCode[:10] and inp2==cipher.selfKey()[:10]):
             print(f"your enc_nonce: {pow(cipher.getNonce(), 5, RSAfuzzingN)}")
     elif(inp=='exit'):
         exit(1)

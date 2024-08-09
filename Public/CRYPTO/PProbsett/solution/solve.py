@@ -43,11 +43,13 @@ def enc(message):
     sign = int(io.recvline().decode().strip(),16)
     return cipher, sign
 
-def getNonce(part_secret):
+def getNonce(part_secret, part_selfkey):
     io.recvuntil(b']: ')
     io.sendline(b'4')
     io.recvuntil(b'secretCode: ')
     io.sendline(part_secret)
+    io.recvuntil(b'selfKey: ')
+    io.sendline(part_selfkey)
     io.recvuntil(b'enc_nonce: ')
     return int(io.recvline().decode().strip())
 
@@ -72,20 +74,7 @@ def decPoly(p, n, e, c, parser):
     print("Not Found")
     return None
 
-# franklinreiter attacks
-def gcd(a, b): 
-    while b:
-        a, b = b, a % b
-    return a.monic()
-
-def franklinreiter(C1, C2, e, N, b, c):
-    X = PolynomialRing(Zmod(N),names="X").gen()
-    g1 = (X + b)**e - C1
-    g2 = (X + c)**e - C2
-    result = -gcd(g1, g2).coefficients()[0]
-    return int(hex(int(result))[2:].replace("L",""),16)
-
-# LLL on HNP
+# simple HNP
 def pad(message):
     return message + b'\x00'*(32 - (len(message)%32))
 
@@ -121,6 +110,19 @@ def hnpLLL(p, sized, sg, mul):
     print("LLL not found number")
     return None
 
+# franklinreiter attacks
+def gcd(a, b): 
+    while b:
+        a, b = b, a % b
+    return a.monic()
+
+def franklinreiter(C1, C2, e, N, b, c):
+    X = PolynomialRing(Zmod(N),names="X").gen()
+    g1 = (X + b)**e - C1
+    g2 = (X + c)**e - C2
+    result = -gcd(g1, g2).coefficients()[0]
+    return int(hex(int(result))[2:].replace("L",""),16)
+
 def main():
     # i_have_secret_contd = f'Im READY for SECURITY code: {secretCode[:40]} buzzing MAKE me code: {secretCode[40:]}'.encode()
     p, n, e = getPublic()
@@ -129,16 +131,16 @@ def main():
     iv = decPoly(p, n, e, c1, plain)
     first_part_code = iv.split('code: ')[1]
     print("Getting firs_part:",first_part_code)
-    enc_nonce1 = getNonce(first_part_code[:10].encode())
-    c2, s2 = enc(plain)
-    enc_nonce2 = getNonce(first_part_code[:10].encode())
-    nonce = franklinreiter(enc_nonce1, enc_nonce2, 5, RSAfuzzingN ,1 , 2)
-    print("Getting nonce:",nonce)
-    selfk = attackHNP(iv, Integer(p), 60)
+    inc = 60
+    selfk = attackHNP(iv, Integer(p), inc)
     print("Getting selfk:",selfk)
+    selfKey = hashlib.sha256(long_to_bytes(int(selfk))).hexdigest()
+    enc_nonce1 = getNonce(first_part_code[:10].encode(), selfKey[:10].encode())
+    c2, s2 = enc(plain)
+    enc_nonce2 = getNonce(first_part_code[:10].encode(), selfKey[:10].encode())
+    nonce = franklinreiter(enc_nonce1, enc_nonce2, 5, RSAfuzzingN, inc+1, inc+2)
+    print("Getting nonce:",nonce)
     RSAfuzzingd = int(int(nonce)) * int(p) + int(selfk)
-    # print("d:",RSAfuzzingd)
-    # print("p:",p)
     secret_contd = long_to_bytes(int(pow(cip_num, int(RSAfuzzingd), RSAfuzzingN)))
     # print(secret_contd)
     flag = getFlag(secret_contd)
