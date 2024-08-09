@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
 
 # Update and install dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
     build-essential \
     python3-pip \
     python3-dev \
@@ -16,16 +16,12 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install SageMath 9.5
-RUN apt-get install -y sagemath
+RUN apt install -y sagemath
 
-# Install Python packages
-RUN pip3 install --upgrade pip
-
-# Add SageMath to PATH
-ENV PATH="/opt/sage:${PATH}"
+# check version
 RUN sage --version
 
-RUN apt-get install -y nano socat
+RUN apt install -y nano socat
 RUN pip install pycryptodome
 
 WORKDIR /opt
