@@ -50,10 +50,16 @@ RUN wget -O /tmp/sage-9.5.tar.gz https://github.com/sagemath/sage/archive/refs/t
     tar -xvzf /tmp/sage-9.5.tar.gz -C /opt/sage --strip-components=1 && \
     rm /tmp/sage-9.5.tar.gz
 
-# Build SageMath from source
+# Navigate to the directory containing the configure script
 WORKDIR /opt/sage
 
-RUN ./configure
+# Verify the presence of the configure script
+RUN ls -l configure
+
+# Configure SageMath before building
+RUN ./bootstrap && ./configure
+
+# Build SageMath from source
 RUN make -j$(nproc)
 
 # Install Python dependencies
