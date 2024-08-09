@@ -53,11 +53,8 @@ RUN wget -O /tmp/sage-9.5.tar.gz https://github.com/sagemath/sage/archive/refs/t
 # Navigate to the directory containing the configure script
 WORKDIR /opt/sage
 
-# Verify the presence of the configure script
-RUN ls -l configure
-
-# Configure SageMath before building
-RUN ./bootstrap && ./configure
+RUN make configure
+RUN ./configure
 
 # Build SageMath from source
 RUN make -j$(nproc)
