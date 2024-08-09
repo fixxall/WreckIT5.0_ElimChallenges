@@ -54,7 +54,7 @@ RUN wget -O /tmp/sage-9.5.tar.gz https://github.com/sagemath/sage/archive/refs/t
 WORKDIR /opt/sage
 
 RUN make configure
-RUN ./configure
+RUN ./configure --enable-build-as-root
 
 # Build SageMath from source
 RUN make -j$(nproc)
