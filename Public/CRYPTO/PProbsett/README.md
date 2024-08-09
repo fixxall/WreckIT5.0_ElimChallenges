@@ -4,11 +4,11 @@ Author: [wondPing](https://github.com/fixxall)
 
 ## Description
 
-Halo gaes, probsetnya bingung bikin soal karena yang ngerjain pada suhu. Yodahlah tinggal combine aja basic-basic rsa biar mindblowing.
+Halo gaes, ini h-1, probsetnya bingung bikin soal karena yang ngerjain pada suhu. Yodahlah tinggal combine aja basic-basic rsa biar mindblowing.
 
 ## Requirements
 
-None
+dockerfile
 
 ## Sources
 
@@ -21,8 +21,7 @@ None
 
 ## Exploit
 
-- Using LLL for recovery private key
-
+- pikir dewe
 - [solution](./solution)
 
 ## Flag
@@ -39,8 +38,8 @@ WRECKIT50{##secret##!-----___-------******()^_^()******-------___-----!##sharing
 
 ## connection
 
-nc wreckit.com 50502
+nc 188.166.247.108 7044
 
 ## Severity
 
-MEDIUM
+EAZY-MEDIUM
