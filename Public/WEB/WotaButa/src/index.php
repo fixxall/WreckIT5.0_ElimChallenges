@@ -169,7 +169,7 @@ foreach ($_GET as $key => $value) {
                 <table class="w-full text-sm text-left text-gray-700">
                     <thead class="text-xs uppercase bg-white text-gray-700">
                         <tr>
-                            <th scope="col" class="py-3 px-6 text-center border-b border-pink-custom">Query</th>
+                            <th scope="col" class="py-3 px-6 text-center border-b border-pink-custom">OI OI OI</th>
                         </tr>
                     </thead>
                     <tbody>
