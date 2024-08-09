@@ -1,8 +1,36 @@
-FROM python:3.10-slim-buster
+# Base image
+FROM ubuntu:22.04
 
-RUN apt-get update
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+
+# Update and install dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    python3-pip \
+    python3-dev \
+    curl \
+    git \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install SageMath 9.5
+RUN curl -O http://www.sagemath.org/download/linux/64bit/sage-9.5-Ubuntu_20.04-x86_64.tar.bz2 && \
+    tar -xvjf sage-9.5-Ubuntu_20.04-x86_64.tar.bz2 && \
+    rm sage-9.5-Ubuntu_20.04-x86_64.tar.bz2 && \
+    mv SageMath /opt/sage && \
+    ln -s /opt/sage/sage /usr/local/bin/sage
+
+# Install Python packages
+RUN pip3 install --upgrade pip
+RUN pip3 install numpy scipy matplotlib
+
+# Add SageMath to PATH
+ENV PATH="/opt/sage:${PATH}"
+RUN sage --version
+
 RUN apt-get install -y nano socat
-RUN apt-get install -y sagemath
 RUN pip install pycryptodome
 
 WORKDIR /opt
