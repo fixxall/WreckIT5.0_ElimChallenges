@@ -1,28 +1,61 @@
-# Base image
+# Use an official Ubuntu 22.04 base image
 FROM ubuntu:22.04
 
-# Set environment variables
+# Set environment variables to avoid interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
-ENV PYTHONUNBUFFERED=1
 
-# Update and install dependencies
-RUN apt update && apt install -y \
+# Update the package list and install necessary packages
+RUN apt-get update && \
+    apt-get install -y \
+    nano \
+    socat \
     build-essential \
+    m4 \
+    gcc \
+    gfortran \
+    perl \
+    git \
+    texinfo \
+    wget \
+    dpkg-dev \
+    xz-utils \
+    python3 \
     python3-pip \
     python3-dev \
-    curl \
-    git \
-    wget \
-    && rm -rf /var/lib/apt/lists/*
+    libffi-dev \
+    libssl-dev \
+    libzmq3-dev \
+    libcurl4-openssl-dev \
+    libtool \
+    libboost-all-dev \
+    libgmp-dev \
+    libmpfr-dev \
+    libmpc-dev \
+    libssl-dev \
+    libsqlite3-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    tk-dev \
+    liblzma-dev \
+    zlib1g-dev \
+    libopenblas-dev \
+    liblapack-dev \
+    && apt-get clean
 
-# Install SageMath 9.5
-RUN apt install -y sagemath
+# Download and install SageMath 9.5
+RUN wget -O /tmp/sage-9.5.tar.gz https://github.com/sagemath/sage/archive/refs/tags/9.5.tar.gz && \
+    mkdir /opt/sage && \
+    tar -xvzf /tmp/sage-9.5.tar.gz -C /opt/sage --strip-components=1 && \
+    rm /tmp/sage-9.5.tar.gz
 
-# check version
-RUN sage --version
+# Build SageMath from source
+WORKDIR /opt/sage
+RUN make -j$(nproc)
 
-RUN apt install -y nano socat
-RUN pip install pycryptodome
+# Install Python dependencies
+RUN pip install --no-cache-dir pycryptodome
 
 WORKDIR /opt
 COPY ./src .
