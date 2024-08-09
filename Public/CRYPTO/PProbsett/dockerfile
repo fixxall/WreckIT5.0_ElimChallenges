@@ -52,6 +52,8 @@ RUN wget -O /tmp/sage-9.5.tar.gz https://github.com/sagemath/sage/archive/refs/t
 
 # Build SageMath from source
 WORKDIR /opt/sage
+
+RUN ./configure
 RUN make -j$(nproc)
 
 # Install Python dependencies
