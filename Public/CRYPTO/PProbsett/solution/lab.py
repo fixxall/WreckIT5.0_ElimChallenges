@@ -1,4 +1,8 @@
-from sage.all import *
+# from sage.all import *
+
+from sage.all import Integer, GF, PolynomialRing, Zmod, matrix
+from Crypto.Util.number import getPrime
+import hashlib
 import random
 
 # p = random_prime(2**10)
@@ -6,6 +10,8 @@ import random
 # print('p:',p)
 # print('message:',message)
 # R = GF(p)['x']
+# hasil = R('0*x^5 + x + 231213')
+# print(hasil.degree())
 
 # p1 = R.irreducible_element(Integer(5), algorithm="random")
 # q1 = R.irreducible_element(Integer(7), algorithm="random")
@@ -33,25 +39,35 @@ import random
 
 # SOLVED Theorema 1
 
-# p = random_prime(2**512)
-# k = random.randint(0,p)
-# print('k:',k)
+p = Integer(getPrime(512))
+secret = Integer(getPrime(1024))
+k = secret%p
 
-# rep = 60
+rep = 60
 
-# Zn = Zmod(p)
-# t = [random.getrandbits(512) for _ in range(rep)]
-# a = [-(random.getrandbits(500)+k*t[_]+random.getrandbits(256)*888)%p for _ in range(rep)]
-# B = 2**500
-# m = [[0]*i+[p]+[0]*(rep-1-i)+[0,0] for i in range(rep)]
-# m += [t+[B/p,0]]
-# m += [a+[0,B]]
-# Mat = matrix(m)
-# lll = Mat.LLL()
-# for row in lll:
-#     if row[-1] == B:
-#         print(Zn(row[-2]*p/B))
-#         break
+Zn = Zmod(p)
+padding = b"messageacknawdnwaoidwadoiawndoiawndioawmessageacknawdnwaoidwadoiawndoiawndioaw"
+t1 = [int(hashlib.sha256(padding+random.randbytes(2)).hexdigest(),16) for _ in range(rep)]
+# t1 = [random.getrandbits(256) for _ in range(rep)]
+t2 = [int(hashlib.sha256(padding+random.randbytes(2)).hexdigest(),16) for _ in range(rep)]
+# t2 = [random.getrandbits(256) for _ in range(rep)]
+# for i in range(rep):
+#     print((t1[i]*t2[i]).bit_length())
+nonce = random.getrandbits(1024)
+t = [t1[_]*t2[_] for _ in range(rep)]
+a = [-(random.getrandbits(500)+(k*t1[_]*t2[_])+((nonce+_)%(2**256))) % p for _ in range(rep)]
+# print(a)
+B = 2**495
+m = [[0]*i+[p]+[0]*(rep-1-i)+[0,0] for i in range(rep)]
+m += [t+[B/p,0]]
+m += [a+[0,B]]
+Mat = matrix(m)
+lll = Mat.LLL()
+print('k:',k)
+for row in lll:
+    if row[-1] == B:
+        print(Zn(row[-2]*p/B))
+        break
 # SOLVED Theorema 2
 
 

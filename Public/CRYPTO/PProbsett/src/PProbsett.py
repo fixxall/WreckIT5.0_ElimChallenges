@@ -27,7 +27,7 @@ class PProbsett:
         k = random.getrandbits(500)
         digest = int(hashlib.sha256(message).hexdigest(), 16)
         buff = int(hashlib.sha256(enc).hexdigest(), 16)
-        sign = (k + (buff * digest * self.k) + (self.nonce%(2**256))) % self.p
+        sign = -(k + (buff * digest * self.k) + (self.nonce%(2**256))) % self.p
         self.nonce += 1
         return sign
     

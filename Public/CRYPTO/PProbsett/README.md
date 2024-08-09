@@ -36,6 +36,8 @@ WRECKIT50{##secret##!-----___-------******()^_^()******-------___-----!##sharing
 ## hint
 
 - Search for Paper: MODIFIED RSA IN THE DOMAINS OF GAUSSIAN INTEGERS AND POLYNOMIALS OVER FINITE FIELDS
+- Franklin Reiter
+- HNP using LLL
 
 ## connection
 
@@ -43,4 +45,4 @@ nc wreckit.com 50502
 
 ## Severity
 
-EAZY
+MEDIUM

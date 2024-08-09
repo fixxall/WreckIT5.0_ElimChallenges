@@ -27,7 +27,7 @@ while True:
     inp = input("]: ")
     if(inp=='1'):
         answer = input("answer: ")
-        if(answer==i_have_secret_contd):
+        if(answer==i_have_secret_contd.decode()):
             print(f"Successfully, and this is your flag: {FLAG}")
         else:
             print(f"You are not our team, access denied.")
