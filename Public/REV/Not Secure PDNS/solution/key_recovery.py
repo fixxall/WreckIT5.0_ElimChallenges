@@ -9,7 +9,7 @@ import requests
 url = 'http://localhost:8080/encrypt'
 
 hasil = []
-for coun in range(50):
+for coun in range(100):
     try:
         def sendMessage(arr_x):
             sendata = b''
@@ -19,32 +19,20 @@ for coun in range(50):
             filedata = {'file': sendata}
             resp = requests.post(url, files=filedata)
             result = []
+            p = int(resp.content.split(b'--PUBS--')[1].split(b'--END--')[0].decode(),16)
             for i in resp.content.split(b'--START--')[1:]:
                 respdata = i.split(b'--END--\n')[0]
                 result.append(int(respdata.decode(),16))
-            return result
+            return p, result
 
         init_message = "plays"
+
         arrInp = [init_message]
 
-        init_message = bytes_to_long(init_message.encode())
-        for x in range(35, 40):
-            arrInp+=['x:'+str(x)]
-
-        out_ret= sendMessage(arrInp)
+        p, out_ret= sendMessage(arrInp)
         print("Getting out_ret")
         initiation = out_ret[0]
 
-        test = []
-        for x in range(35, 40):
-            plain = bytes_to_long(b'x:'+str(x).encode())
-            mess = pow(plain,x)
-            assert mess.bit_length() > 1024
-            test.append([plain, mess, out_ret[x-34]])
-
-        p = test[0][1]-test[0][2]
-        for i in test[1:]:
-            p = gcd(i[1]-i[2], p)
         assert isPrime(p)
         limitNum = 100000
         fact = factor_trial_division(p-1, limitNum)
@@ -61,14 +49,19 @@ for coun in range(50):
         # format list for poligh solve
         # [(g, h, pe)]
         lp = []
-        count = [init_message, initiation]
+        count = [bytes_to_long(init_message.encode()), initiation]
         for i,j in fact:
             if pow(i,j)<limitNum:
                 pe = pow(i, j)
                 g = pow(count[1],((p-1)//pe), p)
                 h = pow(count[0],((p-1)//pe), p)
-                if(g==1 or h==1): break
-                lp.append([g,h,pe])
+                # handling no gcd with phi
+                if(g==h or g==1 or h==1 or gcd(h,p-1)!=1 or gcd(g,p-1)!=1): 
+                    pass
+                else:
+                    if(pe==27 or pe==9):
+                        print(g,h,p)
+                    lp.append([g,h,pe])
 
         result = solvePoligh(lp, p)
         hasil += result
@@ -79,11 +72,16 @@ for coun in range(50):
 
 m = []
 v = []
-for i,j in hasil:
+for i,j in hasil: 
     m.append(i)
     v.append(j)
 
+print(m, v)
+
 crt_m = crt(v,m)
-print(crt_m[0])
+print(crt_m)
 
-
+target = 149288500468776648188046808125977264807
+for i in range(len(m)):
+    if(target%v[i]!=m[i]): 
+        print("nah lo", m[i], v[i])

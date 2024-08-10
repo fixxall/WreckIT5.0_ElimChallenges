@@ -5,6 +5,7 @@ from io import BytesIO
 
 app = Flask(__name__)
 env_key = b'pO\xebY\xe6\xf5\xa0\x85\x9d\x1e\xa1E\xb3\xea\x02\xa7'
+# print(bytes_to_long(env_key))
 
 @app.route('/encrypt', methods=['POST'])
 def encrypt_file():
@@ -25,9 +26,9 @@ def encrypt_file():
     parseData = file_bytes.split(b'\n')
     returnData = b''
     for filebytesdata in parseData:
-        if(filebytesdata.split(b":")[0].strip()==b'x'): x=int(filebytesdata.split(b":")[1].strip())
         enc_message = long_to_bytes(pow(bytes_to_long(filebytesdata), x, p))
         returnData+=b'--START--'+enc_message.hex().encode()+b'--END--\n'
+    returnData += b'--PUBS--'+hex(p)[2:].encode()+b'--END--'
     print(returnData)
     
     output = BytesIO(returnData)
