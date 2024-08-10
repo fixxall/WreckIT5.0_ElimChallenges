@@ -11,10 +11,11 @@ DB_PASSWORD=$(echo "$DB_PASSWORD" | tr -d '\r\n')
 DB_DATABASE=$(echo "$DB_DATABASE" | tr -d '\r\n')
 SEED=$(echo "$SEED" | tr -d '\r\n')
 
-/wait-for-it.sh "$DB_HOST":3306 -- echo "MySQL is up - initializing database"
+/wait-for-it.sh "$DB_HOST":3306 --timeout=60 --strict -- echo "MySQL is up - initializing database"
 
->&2 echo "MySQL is up - initialization"
+# Additional sleep for safety
+sleep 10
 
-mysql -h"$DB_HOST" -u"$DB_USER" -p"$DB_PASSWORD" "$DB_DATABASE" -e "INSERT INTO users (username, password) VALUES ('admin', '$SEED'), ('user', 'user');"
+mysql -h"$DB_HOST" -u"$DB_USER" -p"$DB_PASSWORD" "$DB_DATABASE" -e "INSERT INTO users (username, password) VALUES ('admin', '$SEED'), ('user', 'user');" 
 
-exec python -u /opt/app.py
+exec python -u /opt/app.py 

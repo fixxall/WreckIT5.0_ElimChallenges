@@ -17,7 +17,7 @@ e = 0x10001
 m = bytes_to_long(FLAG)
 c = pow(m, e, n)
 
-tulis = open('hasil.txt','w')
+tulis = open('hasil2.txt','w')
 tulis.write(f"n = {n}\n")
 tulis.write(f"e = {e}\n")
 tulis.write(f"c = {c}\n")
