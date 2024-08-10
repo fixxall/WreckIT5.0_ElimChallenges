@@ -10,8 +10,7 @@ app.secret_key = 'os.urandom(8)'
 DATABASE = "database.db"
 def query_database(name):
     query = 'sqlite3 database.db "SELECT biography FROM oshi WHERE name=\'' + str(name) +'\'\"'
-    command = ['sqlite3', 'database.db', query]
-    result = subprocess.run(command, capture_output=True, text=True)
+    result = subprocess.run(query, capture_output=True, text=True)
     if result.returncode == 0:
         return result.stdout.strip()
     else:
