@@ -1,16 +1,16 @@
 <?php
 session_start();
-echo "<h2>Do you need phpinfo? ... or not?</h2>";
+echo "<h2>Apakah ada ingpo minnn? no ingpokahh??? hmmm.....</h2>";
 
 $num=$_GET['num'];
 $page=$_GET['page'];
 
 if(preg_match("/^[0-9+-\/\*e ]/i", $num)){
-    exit("<h2>I hate number<h2>");
+    exit("<h2>ga boleh angka<h2>");
 }
 
 if(preg_match("/flag|\.|php|conf|\*|'|\"/i", $page)){
-    exit("<h2>don't do that.</h2>");
+    exit("<h2>hmmm jangan ya dek</h2>");
 }
 
 
