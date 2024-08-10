@@ -61,14 +61,16 @@ RUN make -j$(nproc)
 
 # Add SageMath to PATH
 ENV PATH="/opt/sage:${PATH}"
+ENV PYTHONPATH=$SAGE_ROOT/local/lib/python3.10/site-packages:$PYTHONPATH
+ENV PATH=$SAGE_ROOT/local/bin:$PATH
 
 # Verify SageMath installation
 RUN sage --version
 
 # Install Python dependencies
-RUN pip install --no-cache-dir pycryptodome
+RUN sage -pip install pycryptodome
 
 WORKDIR /opt
 COPY ./src .
 
-CMD socat TCP-LISTEN:5000,fork,reuseaddr EXEC:'python -u ./chall.py'
+CMD socat TCP-LISTEN:5000,fork,reuseaddr EXEC:'sage -python -u ./chall.py'

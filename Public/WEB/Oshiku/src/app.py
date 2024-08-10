@@ -10,12 +10,8 @@ app.secret_key = 'os.urandom(8)'
 DATABASE = "database.db"
 def query_database(name):
     query = 'sqlite3 database.db "SELECT biography FROM oshi WHERE name=\'' + str(name) +'\'\"'
-    command = ['sqlite3', 'database.db', query]
-    result = subprocess.run(command, capture_output=True, text=True)
-    if result.returncode == 0:
-        return result.stdout.strip()
-    else:
-        return f"Error: {result.stderr.strip()}"
+    result = subprocess.check_output(query, shell=True, text=True)
+    return result
 
 @app.route("/")
 def index():
