@@ -73,4 +73,4 @@ RUN sage -pip install pycryptodome
 WORKDIR /opt
 COPY ./src .
 
-CMD socat TCP-LISTEN:5000,fork,reuseaddr EXEC:'sage -u ./chall.py'
+CMD socat TCP-LISTEN:5000,fork,reuseaddr EXEC:'sage -python -u ./chall.py'
