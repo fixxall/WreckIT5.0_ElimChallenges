@@ -61,6 +61,8 @@ RUN make -j$(nproc)
 
 # Add SageMath to PATH
 ENV PATH="/opt/sage:${PATH}"
+ENV PYTHONPATH=$SAGE_ROOT/local/lib/python3.10/site-packages:$PYTHONPATH
+ENV PATH=$SAGE_ROOT/local/bin:$PATH
 
 # Verify SageMath installation
 RUN sage --version
