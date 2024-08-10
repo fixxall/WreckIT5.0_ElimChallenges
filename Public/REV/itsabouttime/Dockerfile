@@ -38,9 +38,14 @@ EXPOSE 22
 # Add the flag file and startup script
 COPY startup.sh /root/startup.sh
 COPY flag.txt /home/mack/flag.txt
-RUN chown root:root /home/mack/flag.txt && \
-    chmod 400 /home/mack/flag.txt && \
-    chmod +x /root/startup.sh
+
+RUN FLAG_NAME=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 12) && \
+    echo "FLAG_NAME=${FLAG_NAME}" > /root/flag_name.txt && \
+    mv /home/mack/flag.txt /home/mack/${FLAG_NAME} && \
+    chown root:root /home/mack/${FLAG_NAME} && \
+    chmod 400 /home/mack/${FLAG_NAME}
+
+RUN chmod +x /root/startup.sh
 
 ENV USER=root
 CMD ["/root/startup.sh"]
