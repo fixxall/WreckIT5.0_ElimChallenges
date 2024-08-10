@@ -68,9 +68,9 @@ ENV PATH=$SAGE_ROOT/local/bin:$PATH
 RUN sage --version
 
 # Install Python dependencies
-RUN pip install --no-cache-dir pycryptodome
+RUN sage -pip install pycryptodome
 
 WORKDIR /opt
 COPY ./src .
 
-CMD socat TCP-LISTEN:5000,fork,reuseaddr EXEC:'python -u ./chall.py'
+CMD socat TCP-LISTEN:5000,fork,reuseaddr EXEC:'sage -u ./chall.py'
