@@ -5,7 +5,7 @@ from pwn import xor
 import random
 import string
 
-url = "http://103.84.207.92:50207/"
+url = "http://188.166.247.108:7014/"
 
 login_url = url
 home_url = url+'home'
