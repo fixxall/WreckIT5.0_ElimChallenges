@@ -42,7 +42,6 @@ COPY flag.txt /home/mack/flag.txt
 RUN FLAG_NAME=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 12) && \
     echo "FLAG_NAME=${FLAG_NAME}" > /root/flag_name.txt && \
     mv /home/mack/flag.txt /home/mack/${FLAG_NAME} && \
-    rm /home/mack/flag.txt && \
     chown root:root /home/mack/${FLAG_NAME} && \
     chmod 400 /home/mack/${FLAG_NAME}
 
