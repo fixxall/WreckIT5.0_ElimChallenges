@@ -113,7 +113,7 @@ def index():
         else:
             plaintext = SecureFunctionDecrypt(message)
             try:
-                fdata = filteringLevel2(plaintext) | True
+                fdata = filteringLevel2(plaintext)
                 if(fdata): result = render_template_string(plaintext)
                 else: result = "Prohibited using injection LLzz"
             except: 

@@ -6,7 +6,7 @@ import time
 from math import gcd
 import requests
 
-url = 'http://localhost:8080/encrypt'
+url = 'http://137.184.250.54:5555/encrypt'
 
 hasil = []
 for coun in range(100):
@@ -20,6 +20,8 @@ for coun in range(100):
             resp = requests.post(url, files=filedata)
             result = []
             p = int(resp.content.split(b'--PUBS--')[1].split(b'--END--')[0].decode(),16)
+            # print(resp.content)
+            # exit(1)
             for i in resp.content.split(b'--START--')[1:]:
                 respdata = i.split(b'--END--\n')[0]
                 result.append(int(respdata.decode(),16))
@@ -30,6 +32,7 @@ for coun in range(100):
         arrInp = [init_message]
 
         p, out_ret= sendMessage(arrInp)
+        
         print("Getting out_ret")
         initiation = out_ret[0]
 
@@ -40,10 +43,17 @@ for coun in range(100):
         def solvePoligh(arr, pr):
             res = []
             for i in arr:
+                justOne = False
+                appends = None
                 for j in range(1, i[2]):
                     if(pow(i[1], j, pr)==pow(i[0], 1, pr)):
-                        res.append([j, i[2]])
-                        break
+                        if(justOne):
+                            justOne = False
+                            break
+                        else:
+                            appends = [j, i[2]]
+                            justOne = True
+                if(justOne): res.append(appends)
             return res
         
         # format list for poligh solve
@@ -59,8 +69,6 @@ for coun in range(100):
                 if(g==h or g==1 or h==1 or gcd(h,p-1)!=1 or gcd(g,p-1)!=1): 
                     pass
                 else:
-                    if(pe==27 or pe==9):
-                        print(g,h,p)
                     lp.append([g,h,pe])
 
         result = solvePoligh(lp, p)
@@ -76,12 +84,18 @@ for i,j in hasil:
     m.append(i)
     v.append(j)
 
-print(m, v)
-
 crt_m = crt(v,m)
-print(crt_m)
+keys = int(crt_m[0])
+print(keys)
+p, out_ret= sendMessage(["ini coba plain"])
+dec_key = pow(keys, -1, p-1)
 
-target = 149288500468776648188046808125977264807
-for i in range(len(m)):
-    if(target%v[i]!=m[i]): 
-        print("nah lo", m[i], v[i])
+from Crypto.Util.number import long_to_bytes
+plain = int(pow(int(out_ret[0]), dec_key, p))
+print(plain)
+print(long_to_bytes(plain))
+
+# target = 149288500468776648188046808125977264807
+# for i in range(len(m)):
+#     if(target%v[i]!=m[i]): 
+#         print("nah lo", m[i], v[i])

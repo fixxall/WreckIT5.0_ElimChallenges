@@ -48,11 +48,7 @@ rep = 60
 Zn = Zmod(p)
 padding = b"messageacknawdnwaoidwadoiawndoiawndioawmessageacknawdnwaoidwadoiawndoiawndioaw"
 t1 = [int(hashlib.sha256(padding+random.randbytes(2)).hexdigest(),16) for _ in range(rep)]
-# t1 = [random.getrandbits(256) for _ in range(rep)]
 t2 = [int(hashlib.sha256(padding+random.randbytes(2)).hexdigest(),16) for _ in range(rep)]
-# t2 = [random.getrandbits(256) for _ in range(rep)]
-# for i in range(rep):
-#     print((t1[i]*t2[i]).bit_length())
 nonce = random.getrandbits(1024)
 t = [t1[_]*t2[_] for _ in range(rep)]
 a = [-(random.getrandbits(500)+(k*t1[_]*t2[_])+((nonce+_)%(2**256))) % p for _ in range(rep)]

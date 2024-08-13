@@ -32,6 +32,8 @@ M = matrix(ZZ,[[1,0,0,0,4*X^4],[0,1,0,0,4*X^3],[0,0,1,0,4*X^2],[0,0,0,1,4*X^1],[
 for eq in M.LLL():
 	x = PolynomialRing(ZZ, 'x').gen()
 	pol = eq[0]*x^4+eq[1]*x^3+eq[2]*x^2+eq[3]*x+(eq[4]//-4)
+
+    
 	if '(' in str(pol.factor()) and '^4' not in str(pol.factor()):
 		lop=pol.factor()
 u2,u1,u0 = list(lop[0][0])[2],list(lop[0][0])[1],list(lop[0][0])[0]

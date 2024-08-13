@@ -16,7 +16,7 @@ class villageAuth:
 
     def keygen(self, base):
         secret = [random.getrandbits(base*i) for i in range(1,base)]
-        secret = [random.getrandbits(base) for i in range(1,base)]
+        # secret = [random.getrandbits(base) for i in range(1,base)]
         privs = [ec.derive_private_key(i, ec.SECP256K1()) for i in secret]
         pubs = [self.serialize(i.public_key()).hex() for i in privs]
         return pubs
